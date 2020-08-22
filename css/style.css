@@ -1,0 +1,1041 @@
+/*======================================== BOTÕES ========================================*/
+/* BOTÕES GERAIS */
+button {
+  position:relative;
+  padding: 10px 20px;  
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 30px;  
+  border-radius: 4px; 
+  z-index: 0;  
+  overflow: hidden;   
+}
+
+button:focus {
+  outline-color: transparent;
+}
+button:hover {
+  outline-color: transparent;
+}
+
+/* BOTÕES VERDES*/
+.btn-outline-success{
+	box-shadow: #32CD32 0px 0px 0px;
+}
+.btn-outline-success:hover{
+	  box-shadow: #32CD32 0px 0px 10px;
+}
+
+/* BOTÕES AZUIS/FACEBOOK*/
+.btn-outline-info{
+	background: transparent;
+	border: #1E90FF 1px solid;
+	color: #1E90FF;
+}
+.btn-outline-info:hover{
+	background: #1E90FF;
+	box-shadow: #1E90FF 0px 0px 10px;
+}
+
+/* BOTÕES AMARELOS/INSTAGRAM*/
+.btn-outline-warning{
+	background: transparent;
+}
+.btn-outline-warning:hover{
+	color: white;
+	background: #ffc107;
+	box-shadow: #ffc107 0px 0px 10px;
+}
+.btn-outline-warning:focus{
+	color: white;
+}
+
+/*======================================== INDEX ========================================*/
+#tc-index{
+	overflow-x: hidden;
+}
+/* IMAGEM PRINCIPAL */
+.parallax-index {
+  background-image: url("img/img1.png");
+  min-height: 690px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 100px; 
+}
+
+/* PRIMEIRA COL */
+#h2-index{
+	color: #32CD32;
+}
+
+/* ANIMAÇÃO DE ENTRADA DO TÍTULO */
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#a-tc-index{
+	text-align: left;
+	color: white;
+	border-left: 4px solid #32CD32;
+	margin-left: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+}
+/*
+#b-tc-index{
+	text-align: right;
+	color: white;
+	border-left: 4px solid #32CD32;
+	margin-left: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+	margin-top: 50px;
+}
+
+#c-tc-index{
+	text-align: left;
+	color: white;
+	border-left: 4px solid #32CD32;
+	margin-left: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+	margin-top: 50px;
+}
+*/
+
+#d-tc-index{
+	text-align: right;
+	color: white;
+	border-right: 4px solid #32CD32;
+	margin-right: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+	margin-top: 50px;
+}
+
+#e-tc-index{
+	text-align: left;
+	color: white;
+	border-left: 4px solid #32CD32;
+	margin-right: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+	margin-top: 50px;
+}
+/*
+#f-tc-index{
+	text-align: right;
+	text-align: right;
+	color: white;
+	border-right: 4px solid #32CD32;
+	margin-right: 0px;
+	opacity: 1;
+	animation: indexEaseIn 1s ease;
+	animation-iteration-count: initial;
+	margin-top: 50px;
+}
+*/
+
+/* ANIMAÇÃO DE ENTRADA DA COLUNA */
+
+@keyframes indexEaseIn{
+	from{opacity: 0}
+	to{opacity: 1}
+}
+
+/* ANIMAÇÃO DO BOTAO */
+.scale-in-ver-center {
+	-webkit-animation: scale-in-ver-center 1s cubic-bezier(0.075, 0.820, 0.165, 1.000) 0.2s both;
+	        animation: scale-in-ver-center 1s cubic-bezier(0.075, 0.820, 0.165, 1.000) 0.2s both;
+}
+
+@-webkit-keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+  }
+}
+/* ANIMAÇÃO AINDA NÃO POSSUI CONTA */
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/*======================================== SOBRE ========================================*/
+/* FUNDO */
+.parallax-sobre {
+  background: #121212;
+  min-height: 690px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 100px; 
+}
+/* TÍTULO */
+.h2-sobre{
+	color: white;
+	border-bottom: 1px solid #32CD32;
+	font-size: 25px;
+}
+/* TÍTULO DE PARÁGRAFO */
+.h3-sobre{
+	color: white;
+}
+
+/* PARÁGRAFO */
+.h6-sobre{
+	color: white;
+	cursor: default;
+}
+
+/* ESPAÇAMENTO */
+.ajust-sobre{
+	margin-top: 5px;
+}
+
+/* BORDA LATERAL */
+#col-sobre{
+	border-right: #32CD32 2px solid;
+}
+
+/* ANIMAÇÃO DA IMAGEM */
+.scale-in-center {
+	-webkit-animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) both;
+	        animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) both;
+}
+.scale-in-center-one {
+	-webkit-animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 0.5s both;
+	        animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 0.5s both;
+}
+.scale-in-center-two {
+	-webkit-animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 0.9s both;
+	        animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 0.9s both;
+}
+.scale-in-center-three {
+	-webkit-animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 1.2s both;
+	        animation: scale-in-center 1s cubic-bezier(0.770, 0.000, 0.175, 1.000) 1.2s both;
+}
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ANIMAÇÃO PARÁGRAFO */
+.slide-in-right {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* COLUNAS DE BAIXO/BORDAS DE BAIXO/SOMBRA */
+.col-sobre{
+	transform: scale(1,1);
+	border-bottom: 2px solid transparent;
+	transition: 0.2s ease;
+	-webkit-box-shadow: 0px 14px 24px 7px rgba(0,0,0,0);
+	-moz-box-shadow: 0px 14px 24px 7px rgba(0,0,0,0);
+	box-shadow: 0px 14px 24px 7px rgba(0,0,0,0);
+}
+
+.col-sobre:hover{
+	transform: scale(1.01,1.01);
+	border-bottom: 2px solid #32CD32;
+	transition: 0.2s ease;
+	-webkit-box-shadow: 0px 14px 24px 7px rgba(0,0,0,0.14);
+	-moz-box-shadow: 0px 14px 24px 7px rgba(0,0,0,0.14);
+	box-shadow: 0px 14px 24px 7px rgba(0,0,0,0.14);
+}
+
+.h5-sobre{
+	text-align: center;
+	color: #32CD32;
+	cursor: default;
+	transition: 0.2s ease;
+}
+
+.col-ajust-sobre{
+	border-bottom: 2px solid #32CD32;
+	opacity: 1;
+	animation: col-ajust-sobre 5s ease;
+	animation-iteration-count: initial;
+}
+@keyframes col-ajust-sobre{
+	from{opacity: 0}
+	to{opacity: 1}
+}
+
+/*=================================== TERMOS DE USO =======================================*/
+
+.parallax-policies {
+  background: #121212;
+  min-height: 900px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/* TEXTO DOS PARÁGRAFOS*/
+.h6-policies{
+  color: white;
+  cursor: default;
+}
+
+
+
+/*======================================== CONTATO ========================================*/
+
+.parallax-contato {
+  background: #121212;
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/* TÍTULO */
+.h2-contato{
+	color: white;
+	font-size: 25px;
+}
+.col-ajust-contato{
+	margin-top: 50px;
+}
+
+/* ANIMAÇÃO DOS TÍTULOS */
+.tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ANIMAÇÃO DOS BOTÕES */
+.scale-in-center-contato {
+	-webkit-animation: scale-in-center-contato 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+	        animation: scale-in-center-contato 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+@-webkit-keyframes scale-in-center-contato {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center-contato {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*======================================= TUTORIAL =======================================*/
+
+.parallax-tutorial {
+  background: #121212;
+  min-height: 690px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*======================================== LOGIN =========================================*/
+
+.parallax-login {
+  background: #121212;
+  min-height: 600px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+.input-login{
+		width: 300px;
+		color: white;
+		border: none;
+		border-bottom: 2px solid white;
+		background-color: transparent;
+		outline: none;
+		transition: 0.4s;
+}
+.input-login:hover{
+	border-bottom: 2px solid #32CD32;
+	transition: 0.4s;
+}
+.input-login:focus{
+	border-bottom: 2px solid #32CD32;
+	transition: 0.4s;
+}
+
+.label-login{
+	color: white;
+}
+
+.h2-login{
+	color: white;
+}
+
+.tc-animation-login {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.tc-animation-login:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 1px;
+	background: #32CD32;
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	transition: 0.3s;
+}
+.tc-animation-login:hover:before, .tc-animation-login:focus:before, .tc-animation-login:active:before {
+	left: 0;
+	right: 0;
+	transform: scale(1.1,1.1);
+	transition: 0.3s;
+}
+
+#a-login{
+	color: white;
+	text-decoration: none;
+}
+
+#a-login:hover{
+	color: white;
+	text-decoration: none;
+}
+
+#a-login:focus{
+	color: white;
+	text-decoration: none;
+}
+
+
+/*====================================== REGISTRO ========================================*/
+
+.parallax-registro {
+  background: #121212;
+  min-height: 690px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+.input-registro{
+		width: 300px;
+		color: white;
+		border: none;
+		border-bottom: 2px solid white;
+		background-color: transparent;
+		outline: none;
+		transition: 0.4s;
+}
+.input-registro:hover{
+	border-bottom: 2px solid #32CD32;
+	transition: 0.4s;
+}
+.input-registro:focus{
+	border-bottom: 2px solid #32CD32;
+	transition: 0.4s;
+}
+
+.h6-adjust-registro{
+	margin-top: 5px;
+}
+
+.label-registro{
+  margin-left: 5px;
+}
+
+.tc-animation-registro {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.tc-animation-registro:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 1px;
+  background: #32CD32;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  transition: 0.3s;
+
+}
+.tc-animation-registro:hover:before, .tc-animation-registro:focus:before, .tc-animation-registro:active:before {
+  left: 0;
+  right: 0;
+  transform: scale(1.1,1.1);
+  transition: 0.3s;
+}
+
+#a-registro{
+  color: white;
+  transition: 0.4s ease;
+  text-decoration: none;
+}
+
+#a-registro:focus{
+  color: #32CD32;
+  transition: 0.4s ease;
+  text-decoration: none;
+}
+
+#a-registro:hover{
+  color: #32CD32;
+  transition: 0.4s ease;
+}
+
+
+.flip-in-ver-right {
+	-webkit-animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+	        animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+@-webkit-keyframes flip-in-ver-right {
+  0% {
+    -webkit-transform: rotateY(-80deg);
+            transform: rotateY(-80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-ver-right {
+  0% {
+    -webkit-transform: rotateY(-80deg);
+            transform: rotateY(-80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* ANIMAÇÕES DAS COL-REGISTRO */
+.flip-in-ver-left {
+	-webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+	        animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+}
+@-webkit-keyframes flip-in-ver-left {
+  0% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-ver-left {
+  0% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    opacity: 1;
+  }
+}
+/* TROCAR ESTILO DO BOTÃO DE ESCOLHER A FOTO */
+/* This is copied from https://github.com/blueimp/jQuery-File-Upload/blob/master/css/jquery.fileupload.css */
+ .fileinput-button {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+}
+/*Also*/
+ .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter:'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+}
+/*======================================= PERFIL =======================================*/
+
+.parallax-perfil {
+  background: #121212;
+  min-height: 690px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*======================================== NAVBAR ========================================*/
+/* COR DE FUNDO */
+
+.slide-in-top {
+	-webkit-animation: slide-in-top 0.8s cubic-bezier(0.190, 1.000, 0.220, 1.000) both;
+	        animation: slide-in-top 0.8s cubic-bezier(0.190, 1.000, 0.220, 1.000) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.bg-faded{
+	background: #0F0F0F;
+}
+
+/* ESPAÇAMENTO DOS <A> */
+.nav-link{
+	margin-left: 5px;
+}
+#a-navbar{
+	color: white;
+	transition: 0.4s;
+}
+#a-navbar:hover{
+	color: #32CD32;
+	transition: 0.4s;
+}
+
+#a-navbar-exit{
+  color: white;
+  transition: 0.4s;
+}
+#a-navbar-exit:hover{
+  color: #FF3030;
+  transition: 0.4s;
+
+}
+/* ANIMAÇÃO - <A> */
+.tc-animation-navbar {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.tc-animation-navbar:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 1px;
+	background: #32CD32;
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	transition: 0.3s;
+
+}
+.tc-animation-navbar:hover:before, .tc-animation-navbar:focus:before, .tc-animation-navbar:active:before {
+	left: 0;
+	right: 0;
+	transform: scale(1.1,1.1);
+	transition: 0.3s;
+}
+
+.tc-animation-navbar-exit {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.tc-animation-navbar-exit:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 1px;
+  background: #FF3030;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  transition: 0.3s;
+
+}
+.tc-animation-navbar-exit:hover:before, .tc-animation-navbar-exit:focus:before, .ttc-animation-navbar-exit:active:before {
+  left: 0;
+  right: 0;
+  transform: scale(1.1,1.1);
+  transition: 0.3s;
+}
+
+/*======================================== FOOTER ========================================*/
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+/* COR DO <A> */
+#a-footer{
+	color: white;
+	text-decoration: none;
+}
+#a-footer:hover{
+	color: white;
+	text-decoration: none;
+}
+
+/* COR DO H5 */
+#h5-footer{
+	color: #32CD32;
+}
+/* ANIMAÇÃO - HOME/CONTATO/TERMOS DE USO/EMAIL */
+.tc-animation-footer {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.tc-animation-footer:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 1px;
+	background: #32CD32;
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	transition: 0.3s;
+
+}
+.tc-animation-footer:hover:before, .tc-animation-footer:focus:before, .tc-animation-footer:active:before {
+	left: 0;
+	right: 0;
+	transform: scale(1.1,1.1);
+	transition: 0.3s;
+}
+
+/* ANIMAÇÃO FACEBOOK */
+.tc-animation-footer-face {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.tc-animation-footer-face:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 1px;
+	background: linear-gradient(to right, transparent, #1E90FF);
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	transition: 0.3s;
+
+}
+.tc-animation-footer-face:hover:before, .tc-animation-footer-face:focus:before, .tc-animation-footer-face:active:before {
+	left: 0;
+	right: 0;
+	transform: scale(1.1,1.1);
+	transition: 0.3s;
+}
+
+/* ANIMAÇÃO INSTA */
+.tc-animation-footer-insta {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.tc-animation-footer-insta:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 1px;
+	background: linear-gradient(to right, transparent, #A020F0, yellow);
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	transition: 0.3s;
+
+}
+.tc-animation-footer-insta:hover:before, .tc-animation-footer-insta:focus:before, .tc-animation-footer-insta:active:before {
+	left: 0;
+	right: 0;
+	transform: scale(1.1,1.1);
+	transition: 0.3s;
+}
+
+.bg-footer{
+	background: #070707;
+	color: #535353;
+	border-top: 1px solid #32CD32;
+}
+
+.label-footer{
+	margin-top: 5px;
+}
