@@ -12,9 +12,13 @@ nr_celular varchar(11) not null,
 dt_nascimento date not null,
 ds_usendereco varchar(11) not null,
 ds_usfoto text not null,
+<<<<<<< HEAD
 ds_avaliacao int not null,
 st_admin boolean not null,
 st_ativo boolean not null
+=======
+ds_avaliacao int not null
+>>>>>>> 391b6011130cc9f47c5dfd3f9e82a309d13143ca
 );
 
 
@@ -45,6 +49,7 @@ vl_orcamento varchar(10) not null,
 ds_orcamento varchar (200) not null
 );
 
+<<<<<<< HEAD
 create table report_perfil(
 cd_reportperfil int not null primary key auto_increment,
 ds_report varchar(200) not null,
@@ -64,6 +69,8 @@ id_reportados int not null,
 st_reports boolean not null
 );
 
+=======
+>>>>>>> 391b6011130cc9f47c5dfd3f9e82a309d13143ca
 alter table servico
 add constraint id_usuario foreign key (id_usuario) references usuario (cd_usuario);
 
@@ -76,6 +83,7 @@ add constraint id_servico foreign key (id_servico) references servico (cd_servic
 alter table orcamento
 add constraint id_usuariot foreign key (id_usuariot) references usuario (cd_usuario);
 
+<<<<<<< HEAD
 alter table report_perfil
 add constraint id_reporter foreign key (id_reporter) references usuario (cd_usuario);
 
@@ -87,3 +95,5 @@ add constraint id_reporters foreign key (id_reporters) references usuario (cd_us
 
 alter table report_servico
 add constraint id_reportados foreign key (id_reportados) references usuario (cd_usuario);
+=======
+>>>>>>> 391b6011130cc9f47c5dfd3f9e82a309d13143ca
