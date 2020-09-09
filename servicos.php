@@ -1,137 +1,82 @@
-<?php
-	session_start();
+<?php session_start();
 
-  include ('inc/conectar.php');
-  $sql="SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email ";
-        if ($result=$mysqli->query($sql)) {
-          while ($obje = $result ->fetch_object()) {
-?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<title></title>
-</head>
-<body>
-  <?php
-      $show="SELECT * FROM servico";
+
+  include('inc/conectar.php');
+  $sql = "SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email";
+    if($result = $mysqli->query($sql)) {
+      while ($obje = $result -> fetch_object()) {
+        $_SESSION['usuario'] = $obje->cd_usuario;
+      }
+    }
+
+  
+
+ ?>
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+    <meta charset="utf-8">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   <title></title>
+ </head>
+ <body>
+ 
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <table class='table'>
+                    <thead>
+                      <tr>
+                        <th scope='col'>Data</th>
+                        <th scope='col'>Nome do Serviço</th>
+                        <th scope='col'>Descrição</th>
+                        <th scope='col'>Prazo</th>
+                        <th scope='col'>Cliente</th>
+                        <th scope='col'>Opções</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+  <?php 
+    $show="SELECT * FROM servico AS s 
+    INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
       if ($result=$mysqli->query($show)) {
         if($result->num_rows>=1){
           while ($obj = $result ->fetch_object()) {
-            if ($obj->st_servico ==0) {
+            if ($obj->st_servico ==1) {
               
             
-            echo "<h1>".$obj->nm_servico."</h1>";
-            if ($obj->id_usuario = $obje->cd_usuario) {
-              ?>
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#editModal">EDITAR</button>
-
-<!-- Modal -->
-<div id="editModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Pedido</h4>
-      </div>
-      <?php
-    echo'  <div class="modal-body" id="'.$obj->cd_servico.'">';
-        
-          echo '<form method="post">' ;
-          echo  '<input type="text" name="nome" value="'.$obj->nm_servico.'" required><br>';
-          echo  '<input type="text" name="descricao" value="'.$obj->ds_servico.'" required><br>';
-          echo  '<input type="date" name="data" value="'.$obj->ds_prazo.'" required><br>';
-          echo  '<input type="text" name="endereco" value="'.$obje->ds_usendereco.'" required><br>';
-          echo  '<input type="submit" name="" value="Editar">'; 
-          echo "</form>";
-          
-      echo '  </div>';
-      ?>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-              <?php
-            }
-            echo "Descrição: ".$obj->ds_servico." ";
-            echo "Prazo: ".$obj->ds_prazo."<br>";
-
-      }
-    }
-  }else{
-    echo "Sem trabalhos registrados";
-  }
-}
-?>
-	<div class="container">
-  <h2>Serviços</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Adicionar serviços</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Preencha as Informações para adicionar um Serviço</h4>
-        </div>
-        <div class="modal-body">
-        <?php
-        $data = date("d/m/Y");
-        $num = 0;
-        
-     	 	
-        echo '<form method="post">' ;
-      	    echo  '<input type="text" name="nome" placeholder="O que você precisa" required><br>';
-      	    echo  '<input type="text" name="descricao" placeholder="Descreva sua situação aqui" required><br>';
-      	    echo  '<input type="date" name="data" placeholder="Pra quando você quer o serviço" required><br>';
-        	echo  '<input type="text" name="endereco" value="'.$obje->ds_usendereco.'" required><br>';
-        	echo  '<input type="submit" name="" value="Cadastrar pedido">'; 
-          echo "</form>";
-        	  if (isset($_POST['nome'])) {
-            $ins = "INSERT INTO servico 
-      VALUES (NULL, '". $_POST['nome'] ."', '". $_POST['descricao'] ."', '". $data ."', '". $_POST['data'] ."','".  $obje->cd_usuario."','". $num."')";
-        if ($result=$mysqli->query($ins)) {
-          
-      }else{
-  printf($mysqli->error);
-}
-}else{
-  printf($mysqli->error);
-}
-
+            echo "
+                      <tr>
+                        <th scope='row'>".$obj->dt_servico."</th>
+                          <td>".$obj->nm_servico."</td>
+                          <td>".$obj->ds_servico."</td>
+                          <td>".$obj->ds_prazo."</td>
+                          <td>".$obj->nm_usuario."</td>
+                          <td><a class='btn btn-success' href='orcamento.php'>Orçamento</a></td>
+                      ";
           }
-          
-     	   } 
-    	 else{
-        printf($mysqli->error);
+        }
       }
-
-    
-?>
-</div>
-
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-      
+    }      
+   ?>
+                  </tr>
+                </tbody>
+              </table> 
     </div>
   </div>
-  
-</div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <a href="addservico.php" class="btn btn-info">
+        Adicione seu Serviço!
+      </a>
+    </div>
+  </div>
 
-</body>
-</html>
+
+ </body>
+ </html>

@@ -20,6 +20,7 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 
 		$senha = $_POST['senha'];
 		$hash = $obj->ds_password;
+		$_SESSION['cd'] = $obj->cd_usuario;
 
 		if (crypt($senha, $hash) == $hash) {
 			//aqui armazeno o email do banco ja. nao tem como dar errado.
