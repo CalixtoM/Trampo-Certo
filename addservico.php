@@ -45,11 +45,11 @@
 
 	<?php 
 
-		$data = date("d/m/Y");
+		$data = date("Y/m/d");
 		$num = 1;
 
 		if(isset($_POST['nome'])){
-			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '".$data."', '".$_POST['prazo']."', '".$_SESSION['usuario']."', '".$num."' )";
+			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['usuario']."', '".$num."', '". 1 ."' )";
 
 			if ($result=$mysqli->query($ins)) {
           		header('location: servicos.php');

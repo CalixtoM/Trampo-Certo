@@ -54,7 +54,7 @@
                         <th scope='row'>".$obj->dt_servico."</th>
                           <td>".$obj->nm_servico."</td>
                           <td>".$obj->ds_servico."</td>
-                          <td>".$obj->ds_prazo."</td>
+                          <td>".$obj->dt_prazo."</td>
                           <td>".$obj->nm_usuario."</td>
                           <td><a class='btn btn-success' href='orcamento.php'>Orçamento</a></td>
                       ";

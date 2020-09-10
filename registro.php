@@ -28,7 +28,7 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 
 
 	$sql = "INSERT INTO usuario 
-			VALUES (NULL, '". $nome ."', '". $email ."', '". $hash ."', '". $cpf ."', '". $telefone ."', '". $data ."', '". $endereco ."', '". $destino ."','". 0 ."')";
+			VALUES (NULL, '". $nome ."', '". $email ."', '". $hash ."', '". $cpf ."', '". $telefone ."', '". $data ."', '". $endereco ."', '". $destino ."','". 0 ."', '". 1 ."', '". 0 ."')";
 		if ($result=$mysqli->query($sql)) {
 			$_SESSION['usuario']=$_POST['email'];
 			header("location:perfil.php");
