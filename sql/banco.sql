@@ -1,3 +1,4 @@
+drop database trampo_certo;
 create database trampo_certo;
 
 use trampo_certo;
@@ -76,7 +77,6 @@ add constraint id_servico foreign key (id_servico) references servico (cd_servic
 alter table orcamento
 add constraint id_usuariot foreign key (id_usuariot) references usuario (cd_usuario);
 
-<<<<<<< HEAD
 alter table report_perfil
 add constraint id_reporter foreign key (id_reporter) references usuario (cd_usuario);
 
