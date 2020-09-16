@@ -2,46 +2,60 @@
 	session_start();
 	include('inc/conectar.php');
 ?>
+<!-- HEAD -->
+<?php include('inc/head.php');?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<title></title>
-</head>
-<body>
+<!-- TÍTULO DA PÁGINA -->
+<title>Adicionar Serviços - Trampo Centro</title>
 
-	<div class="container">
-		<form method="post">
-			<div class="row">
-				<div class="col-md-12">
-					<label>Nome do Serviço</label>
-					<input type="text" name="nome" class="form-control">
-				</div>
-			</div>
+<!-- NAVBAR -->
+<?php include('inc/navbar.php');?>
+
+<!-- CONTEÚDO DA PÁGINA -->
+<div id="tc-index">
+	<section class="parallax-addservicos">
+		<div class="container text-center">
+			<h2 id="h2-addservicos" class="tracking-in-expand">Adicionar Serviço</h2>
+			<br>
+			<form method="post">
 				<div class="row">
-					<div class="col-md-9">
-						<label>Descrição do Serviço</label>
-						<input type="text" name="desc" class="form-control">
+					<div class="col-sm-3">
 					</div>
-					<div class="col-md-3">
-						<label>Prazo P/ Realizar</label>
-						<input type="date" name="prazo" class="form-control">
+					<div class="col-sm-3 coluna-addservicos slide-in-left-titulo">
+						<h4 class="h4-addservicos text-left">Nome do Serviço</h4>
+						<input type="text" name="nome" class="input-addservicos" required placeholder="Insira o título que irá aparecer no seu serviço.">
 					</div>
-				</div><br>
+
+				</div>
+
+				<br>
+
 				<div class="row">
-					<div class="col-md-5"></div>
-					<div class="col-md-3">
-						<input type="submit" name="enviar" class="btn btn-success" value="Concluir">
+					<div class="col-sm-3">
+					</div>
+					<div class="col-sm-3 coluna-addservicos slide-in-left-desc">
+						<h4 class="h4-addservicos text-left">Descrição do Serviço</h4>
+						<input type="text" name="desc" class="input-addservicos" required placeholder="Insira a descrição do seu serviço.">
 					</div>
 				</div>
-			</div>
-		</form>
-	</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-sm-3">
+					</div>
+					<div class="col-sm-3 coluna-addservicos slide-in-left-dt">
+						<h4 class="h4-addservicos text-left">Prazo do Serviço</h4>
+						<input type='date' name='prazo' class="input-addservicosdt" min='<?php echo date("Y-m-d"); ?>' required>
+					</div>
+				</div>
+				<br>
+					<input type="submit" name="enviar" class="btn btn-outline-success slide-in-fwd-center" value="Concluir">
+			</form>
+		</div>
+	</section>
+</div>
+	
 
 	<?php 
 
@@ -61,5 +75,8 @@
 
 	?>
 
-</body>
-</html>
+<!-- SCRIPTS -->
+<?php include('inc/scripts.php');?>
+
+<!-- FOOTER -->
+<?php include('inc/footer.php');?>

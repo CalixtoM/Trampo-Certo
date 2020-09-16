@@ -1,6 +1,4 @@
 <?php session_start();
-
-
   include('inc/conectar.php');
   $sql = "SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email";
     if($result = $mysqli->query($sql)) {
@@ -9,74 +7,66 @@
       }
     }
 
-  
-
  ?>
+<!-- HEAD -->
+<?php include('inc/head.php');?>
 
- <!DOCTYPE html>
- <html>
- <head>
-    <meta charset="utf-8">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <title></title>
- </head>
- <body>
- 
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <table class='table'>
-                    <thead>
-                      <tr>
-                        <th scope='col'>Data</th>
-                        <th scope='col'>Nome do Serviço</th>
-                        <th scope='col'>Descrição</th>
-                        <th scope='col'>Prazo</th>
-                        <th scope='col'>Cliente</th>
-                        <th scope='col'>Opções</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-  <?php 
-    $show="SELECT * FROM servico AS s 
-    INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
-      if ($result=$mysqli->query($show)) {
-        if($result->num_rows>=1){
-          while ($obj = $result ->fetch_object()) {
-            if ($obj->st_servico ==1) {
-              
-            
-            echo "
-                      <tr>
-                        <th scope='row'>".$obj->dt_servico."</th>
-                          <td>".$obj->nm_servico."</td>
-                          <td>".$obj->ds_servico."</td>
-                          <td>".$obj->dt_prazo."</td>
-                          <td>".$obj->nm_usuario."</td>
-                          <td><a class='btn btn-success' href='orcamento.php'>Orçamento</a></td>
-                      ";
-          }
-        }
-      }
-    }      
-   ?>
-                  </tr>
-                </tbody>
-              </table> 
+<!-- TÍTULO DA PÁGINA -->
+<title>Serviços - Trampo Centro</title>
+
+<!-- NAVBAR -->
+<?php include('inc/navbar.php');?>
+
+<!-- CONTEÚDO DA PÁGINA -->
+<div id="tc-index">
+  <section class="parallax-servicos">
+    <center>
+      <h2 id="h2-servicos" class="tracking-in-expand">SERVIÇOS</h2>
+              <div class="col-sm-2 text-center">
+        <a href="addservico.php" class="btn btn-success jello-horizontal">
+          Adicione seu Serviço
+        </a>
+    </center>
+    <div class="container">
+      <div class="row">
+        
+              <?php 
+                $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
+                if ($result=$mysqli->query($show)) {
+                  if($result->num_rows>=1){
+                    while ($obj = $result ->fetch_object()) {
+                      if ($obj->st_servico ==1) { 
+                      echo "
+                      <div class='col-sm-4 flip-in-hor-bottom' style='padding-top: 25px;'>
+                        <div class='card' style='width: 20rem;'>
+                          <div class='card-body'>
+                            <h5 class='card-title'><h6 class='h6-servicos'><b>Serviço</b></h6>".$obj->nm_servico."</h5>
+                            <p class='card-text'><h6 class='h6-servicos'><b>Descrição</b></h6>".$obj->ds_servico."</p>
+                            <div><b>Cliente: </b>".$obj->nm_usuario."</div>
+                            <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
+                          </div>
+                          <center>
+                          <a href='orcamento.php' class='card-link btn btn-outline-success text-center'> Orçamento</a><br><br>
+                          </center>
+                          </div>
+                        </div>
+                        ";
+                      }
+                    }
+                  }
+                }      
+              ?>
+        </div> 
+        <br>
+        </div>
+      </div>  
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <a href="addservico.php" class="btn btn-info">
-        Adicione seu Serviço!
-      </a>
-    </div>
-  </div>
+  </section>
+
+<!-- SCRIPTS -->
+<?php include('inc/scripts.php');?>
+
+<!-- FOOTER -->
+<?php include('inc/footer.php');?>
 
 
- </body>
- </html>
