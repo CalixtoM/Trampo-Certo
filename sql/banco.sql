@@ -1,17 +1,16 @@
-drop database trampo_certo;
 create database trampo_certo;
-
+	
 use trampo_certo;
 
 create table usuario(
 cd_usuario int not null primary key auto_increment,
-nm_usuario varchar(255) not null,
-ds_email varchar(150) unique not null,
-ds_password varchar(60) not null,
+nm_usuario varchar(75) not null,
+ds_email varchar(60) unique not null,
+ds_password varchar(20) not null,
 nr_cpf varchar(11) unique not null,
 nr_celular varchar(11) not null,
 dt_nascimento date not null,
-ds_usendereco varchar(11) not null,
+ds_usendereco varchar(80) not null,
 ds_usfoto text not null,
 st_admin boolean not null,
 st_ativo boolean not null,
@@ -21,8 +20,9 @@ ds_avaliacao int not null
 
 create table servico(
 cd_servico int not null primary key auto_increment,
-nm_servico varchar(50) not null,
-ds_servico varchar(200) not null,
+nm_servico varchar(20) not null,
+ds_servico varchar(100) not null,
+ds_endereco varchar(80) not null,
 dt_servico date not null,
 dt_prazo date not null, 
 id_usuario int not null,
@@ -33,8 +33,8 @@ st_servico boolean not null
 
 create table categoria(
 cd_categoria int not null primary key auto_increment,
-nm_categoria varchar(50) not null,
-ds_categoria varchar(200) not null,
+nm_categoria varchar(20) not null,
+ds_categoria varchar(60) not null,
 ds_ftcategoria text not null
 );
 
