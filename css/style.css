@@ -1039,3 +1039,296 @@ button:hover {
 .label-footer{
 	margin-top: 5px;
 }
+
+/*======================================== SERVIÇOS ========================================*/
+
+.parallax-servicos {
+  background: #121212;
+  min-height: 600px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/* Título da página */
+#h2-servicos{
+  color: #32CD32;
+}
+
+/* Barrar <a> */
+#a-servicos{
+  color: white;
+}
+#a-servicos:hover{
+  color: white;
+}
+#a-servicos:focus{
+  color: white;
+}
+#a-servicos:visited{
+  color: white;
+}
+
+/* Cards */
+
+.card{
+  background: #0f0f0f;
+  transition: 0.3s;
+  color: white;
+  border-left: 4px solid #32CD32;
+  display: inline-block;
+}
+
+.card:hover{
+  background: white;
+  transition: 0.3s;
+  color: #0f0f0f;
+}
+
+/* Animação Add Serviço */
+
+.jello-horizontal {
+  -webkit-animation: jello-horizontal 0.9s 1s both;
+          animation: jello-horizontal 0.9s 1s both;
+}
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Animação Cards */
+.flip-in-hor-bottom {
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+/*======================================== ADD_SERVIÇOS ========================================*/
+
+.parallax-addservicos {
+  background: #121212;
+  min-height: 550px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/* Título da página */
+#h2-addservicos{
+  color: #32CD32;
+}
+
+/* Inputs */
+.input-addservicos{
+    width: 500px;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    outline: none;
+    transition: 0.4s;
+}
+.input-addservicos:hover{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
+}
+.input-addservicos:focus{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
+}
+
+/* Input type="date" */
+
+.input-addservicosdt{
+    width: 500px;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    outline: none;
+    transition: 0.4s;
+}
+.input-addservicosdt:hover{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
+}
+.input-addservicosdt:focus{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
+}
+
+/* Título do Input */
+
+.h4-addservicos{
+  font-size: 20px;
+  color: white;
+}
+
+/* Borda lateral dos inputs */
+
+.coluna-addservicos{
+  border-left: 4px solid #121212;
+  transition: 0.2s ease;
+}
+.coluna-addservicos:hover{
+  border-left: 4px solid #32CD32;
+  transition: 0.2s ease;
+}
+
+/* Animações dos Inputs - In */
+.slide-in-left-titulo {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-in-left-desc {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+}
+.slide-in-left-dt {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animação do Botão - In */
+.slide-in-fwd-center {
+  -webkit-animation: slide-in-fwd-center 0.4s ease-in-out 1.5s both;
+          animation: slide-in-fwd-center 0.4s ease-in-out 1.5s both;
+}
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
