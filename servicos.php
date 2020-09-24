@@ -1,13 +1,10 @@
 <?php session_start();
   include('inc/conectar.php');
-  $sql = "SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email";
-    if($result = $mysqli->query($sql)) {
-      while ($obje = $result -> fetch_object()) {
-        $_SESSION['usuario'] = $obje->cd_usuario;
-      }
-    }
-
+ 
+         
+    
  ?>
+
 <!-- HEAD -->
 <?php include('inc/head.php');?>
 
@@ -28,15 +25,19 @@
         </a>
     </center>
     <div class="container">
+
       <div class="row">
         
               <?php 
+         $sql = "SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email;";
+          if($result = $mysqli->query($sql)) {
+            if($result->num_rows==1){
+              while ($obje = $result->fetch_object()) {
                 $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
-                if ($result=$mysqli->query($show)) {
-                  if($result->num_rows>=1){
-                    while ($obj = $result ->fetch_object()) {
-                      if ($obj->st_servico ==1) { 
-                      echo "
+                  if ($resulte=$mysqli->query($show)) {
+                    while ($obj = $resulte ->fetch_object()) { 
+               
+                      echo "<a class='card-servicos' href='servicepage.php?serv=".$obj->cd_servico."'>
                       <div class='col-sm-4 flip-in-hor-bottom' style='padding-top: 25px;'>
                         <div class='card' style='width: 20rem;'>
                           <div class='card-body'>
@@ -45,16 +46,31 @@
                             <div><b>Cliente: </b>".$obj->nm_usuario."</div>
                             <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
-                          <center>
-                          <a href='orcamento.php' class='card-link btn btn-outline-success text-center'> Orçamento</a><br><br>
-                          </center>
+                          <center></a>";
+                          if ($obje->cd_usuario == $obj->id_usuario) {
+                             
+                              
+                              echo "<a href='updateserv.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Editar</a><br><br>";
+                              echo "<a href='delet.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-warning text-center'> Excluir</a><br>";
+                          
+                          }else{
+                             echo "<a href='orcamento.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a><br><br>";
+                              echo "<a href='report.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br>";
+                          
+                          }
+                          echo "</center>
                           </div>
                         </div>
                         ";
-                      }
-                    }
+                      
+                    
                   }
-                }      
+                }
+              }
+            }
+          }
+              
+           
               ?>
         </div> 
         <br>
