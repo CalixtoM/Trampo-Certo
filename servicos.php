@@ -30,7 +30,8 @@
     <div class="container">
       <div class="row">
         
-              <?php 
+              <?php
+              date_default_timezone_set('America/Sao_Paulo'); 
                 $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
                 if ($result=$mysqli->query($show)) {
                   if($result->num_rows>=1){
