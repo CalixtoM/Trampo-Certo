@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-sm-3 coluna-addservicos slide-in-left-dt">
 						<h4 class="h4-addservicos text-left">Prazo do Serviço</h4>
-						<input type='date' name='prazo' class="input-addservicosdt" min='<?php echo date("Y-m-d"); ?>' required>
+						<input type='date' name='prazo' class="input-addservicosdt"  required>
 					</div>
 				</div>
 				<br>
@@ -63,7 +63,7 @@
 		$num = 1;
 
 		if(isset($_POST['nome'])){
-			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['usuario']."', '".$num."', '". 1 ."' )";
+			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['usuario']."', '". 1 ."', '". 1 ."' )";
 
 			if ($result=$mysqli->query($ins)) {
           		header('location: servicos.php');

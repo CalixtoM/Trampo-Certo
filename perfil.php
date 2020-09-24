@@ -34,6 +34,10 @@ session_start();
 				echo $obj->ds_usendereco. "<br>";
 				echo "<img src='".$obj->ds_usfoto."' <br>";
 				echo $obj->ds_avaliacao. "<br>";
+				echo $_SESSION['usuario']."<br>";
+				$_SESSION['cd'] = $obj->cd_usuario;
+				echo $_SESSION['cd'];
+				echo '<a href="updatesenha.php"><button>Alterar a senha</button></a>';
 
 			}
 		}else{
