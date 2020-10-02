@@ -34,7 +34,7 @@ if (isset($_POST['nome'])) {
 			<div class="row">
 				<div class="col-sm-6 text-center flip-in-ver-right">
 					<form method="post" enctype="multpart/form-data">
-						<h2 class="h2-login">Registro</h2>
+						<h2 class="h2-login">Editar Perfil</h2>
 						<?php
 						$sql="SELECT * FROM usuario WHERE ds_email='".$_SESSION['usuario']."'";//ele usa o nome, pq nao ta setado, da 	erro
 						if ($result=$mysqli->query($sql)) {

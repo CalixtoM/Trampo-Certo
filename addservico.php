@@ -1,6 +1,11 @@
-<?php 
-	session_start();
-	include('inc/conectar.php');
+<?php
+session_start();
+	/*<--------------- ANTI-CHEAT --------------->*/
+	if (!(isset($_SESSION["usuario"]))) {
+		header("location:login.php");
+	}
+	/*--------------------------------------------*/
+	include ("inc/conectar.php");
 ?>
 <!-- HEAD -->
 <?php include('inc/head.php');?>

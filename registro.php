@@ -116,7 +116,7 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 						<h6 class="text-light h6-adjust-registro">Foto</h6>
 						<i class="fa fa-file-image text-light"></i>
 						
-						<input type="file" name="foto" class=""> Escolha sua foto
+						<input type="text" name="foto" class=""> Escolha sua foto
 						</span>
 
 						<br>

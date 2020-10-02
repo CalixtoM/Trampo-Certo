@@ -32,6 +32,7 @@
 
               date_default_timezone_set('America/Sao_Paulo');
 
+         if(isset($_SESSION['usuario'])){
          $sql = "SELECT * FROM usuario WHERE '".$_SESSION['usuario']."' = ds_email;";
           if($result = $mysqli->query($sql)) {
             if($result->num_rows==1){
@@ -39,8 +40,8 @@
                 $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
                   if ($resulte=$mysqli->query($show)) {
                     while ($obj = $resulte ->fetch_object()) { 
-               
-                      echo "<a class='card-servicos' href='servicepage.php?serv=".$obj->cd_servico."'>
+                      echo "
+                      <a class='card-servicos' href='servicepage.php?serv=".$obj->cd_servico."' id='a-servicos'>
                       <div class='col-sm-4 flip-in-hor-bottom' style='padding-top: 25px;'>
                         <div class='card' style='width: 20rem;'>
                           <div class='card-body'>
@@ -49,21 +50,23 @@
                             <div><b>Cliente: </b>".$obj->nm_usuario."</div>
                             <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
-                          <center></a>";
+                        <center>
+                      </a>";
                           if ($obje->cd_usuario == $obj->id_usuario) {
                              
                               
-                              echo "<a href='updateserv.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Editar</a><br><br>";
-                              echo "<a href='delet.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-warning text-center'> Excluir</a><br>";
+                              echo "<a href='updateserv.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Editar</a>";
+                              echo "<a href='delet.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-warning text-center'> Excluir</a><br><br>";
                           
                           }else{
-                             echo "<a href='orcamento.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a><br><br>";
-                              echo "<a href='report.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br>";
+                             echo "<a href='orcamento.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a>";
+                              echo "<a href='report.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br><br>";
                           
                           }
                           echo "</center>
                           </div>
                         </div>
+
                         ";
                       
                     
@@ -72,8 +75,23 @@
               }
             }
           }
-              
-           
+        }else{
+          $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
+                  if ($resulte=$mysqli->query($show)) {
+                    while ($obj = $resulte ->fetch_object()) { 
+                      echo "<a class='card-servicos' href='login.php' id='a-servicos'>
+                      <div class='col-sm-4 flip-in-hor-bottom' style='padding-top: 25px;'>
+                        <div class='card' style='width: 20rem;'>
+                          <div class='card-body'>
+                            <h5 class='card-title'><h6 class='h6-servicos'><b>Serviço</b></h6>".$obj->nm_servico."</h5>
+                            <p class='card-text'><h6 class='h6-servicos'><b>Descrição</b></h6>".$obj->ds_servico."</p>
+                            <div><b>Cliente: </b>".$obj->nm_usuario."</div>
+                            <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
+                          </div>
+                          <center></a></div></div>";
+                    }
+                  }
+        }
               ?>
         </div> 
         <br>

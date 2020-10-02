@@ -762,6 +762,7 @@ button:hover {
 }
 /*======================================= PERFIL =======================================*/
 
+/* Fundo */
 .parallax-perfil {
   background: #121212;
   min-height: 690px; 
@@ -771,6 +772,148 @@ button:hover {
   background-size: cover;
   background-position: 50;
   padding: 150px 0 0px; 
+}
+
+/* FOTO */
+.foto-perfil{
+  background:white;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display: inline-block
+}
+
+/* ESPAÇO ESTRELAS */
+#estrela-avaliacao{
+  max-width: 25px;
+}
+
+/* EDITAR */
+.perfil-editar{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  width: 100px;
+}
+.perfil-editar:hover{
+  text-decoration: none;
+  color: white;
+}
+
+/* ANIMAÇÃO EDITAR E ALTERAR SENHA */
+.animation-perfil {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.animation-perfil:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 1px;
+  background: #32CD32;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  transition: 0.3s;
+
+}
+.animation-perfil:hover:before, .animation-perfil:focus:before, .animation-perfil:active:before {
+  left: 0;
+  right: 0;
+  transform: scale(1.1,1.1);
+  transition: 0.3s;
+}
+
+/* BOTOES DAS OPÇÕES */
+.btn-perfil{
+  display: inline-block;
+  width: 270px;
+  font-size: 22px;
+  color: white;
+  text-decoration: none;
+  border-left: 2px #121212 solid;
+  transition: 0.2s ease;
+  outline-style: none;
+}
+
+.btn-perfil:hover{
+  color: #32CD32;
+  text-decoration: none;
+  border-left: 2px #32CD32 solid;
+  transition: 0.2s ease;
+  outline-style: none;
+
+}
+/* HR DAS OPÇÕES */
+.hr-perfil{
+  background: white;
+}
+
+.tracking-in-expand-um {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.4s both;
+          animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.4s both;
+}
+.tracking-in-expand-dois {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.6s both;
+          animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.6s both;
+}
+.tracking-in-expand-tres {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.8s both;
+          animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.8s both;
+}
+.slide-in-left {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+          animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+.slide-in-left-um {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.1s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.1s both;
+}
+
+.slide-in-left-dois {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.15s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.15s both;
+}
+
+.slide-in-left-tres {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
+}
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /*======================================== NAVBAR ========================================*/
@@ -1061,16 +1204,15 @@ button:hover {
 /* Barrar <a> */
 #a-servicos{
   color: white;
+  text-decoration: none;
 }
-#a-servicos:hover{
-  color: white;
+/*#a-servicos:hover{
+  color: black;
 }
 #a-servicos:focus{
-  color: white;
+  color: black;
 }
-#a-servicos:visited{
-  color: white;
-}
+*/
 
 /* Cards */
 
@@ -1080,10 +1222,11 @@ button:hover {
   color: white;
   border-left: 4px solid #32CD32;
   display: inline-block;
+  transform: scale(1,1);
 }
 
 .card:hover{
-  background: white;
+  transform: scale(1.1,1.1);
   transition: 0.3s;
   color: #0f0f0f;
 }
@@ -1240,7 +1383,7 @@ button:hover {
   transition: 0.4s;
 }
 .input-addservicosdt:focus{
-  border-bottom: 2px solid #32CD32;
+  border-bottom: 2px solid #32CD32;;
   transition: 0.4s;
 }
 
@@ -1332,3 +1475,47 @@ button:hover {
   }
 }
 
+/*======================================== ALTERAR SENHA ========================================*/
+
+/* FUNDO */
+.parallax-updtsenha {
+  background: #121212;
+  min-height: 550px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*===================================== VISUALIZAR USUÁRIOS =====================================*/
+
+/* FUNDO */
+.parallax-vis_usuarios {
+  background: #121212;
+  min-height: 550px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/* PRIMEIRA TR PERSONALIZADA */
+.primeira-tr{
+  background: black;
+  color: white;
+}
+
+/* DEMAIS TR'S */
+.tr{
+  color: white;
+  transition: 0.2s ease;
+}
+
+.tr:hover{
+  color: #32CD32;
+  transition: 0.2s ease;
+}

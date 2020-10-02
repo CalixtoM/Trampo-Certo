@@ -22,5 +22,12 @@
 					header('location:http://localhost:8080/tcc/servicepage.php?serv='.$_GET['serv'].'');		        					
 				}
         }
+    //Delet Usuario
+				if (isset($_SESSION['usuario']) && isset($_GET['ex'])) {
+  					$query = "DELETE FROM usuario WHERE cd_usuario = '". $_GET['ex'] . "'";
+  						if($result = $mysqli->query($query)){
+    						header("location:sair.php");
+  						}		
+  				}
 
 ?>
