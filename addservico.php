@@ -17,6 +17,25 @@ session_start();
 <?php include('inc/navbar.php');?>
 
 <!-- CONTEÚDO DA PÁGINA -->
+
+<?php
+		date_default_timezone_set('America/Sao_Paulo');
+		$data = date("Y/m/d");
+		$num = 1;
+
+		if(isset($_POST['nome'])){
+			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['cd']."', '". 1 ."', '". 1 ."' )";
+
+			if ($result=$mysqli->query($ins)) {
+          		header('location: servicos.php');
+      }
+      else{
+  			printf($mysqli->error);
+		}
+	}
+
+	?>
+
 <div id="tc-index">
 	<section class="parallax-addservicos">
 		<div class="container text-center">
@@ -62,24 +81,7 @@ session_start();
 </div>
 	
 
-	<?php 
-
-		date_default_timezone_set('America/Sao_Paulo');
-		$data = date("Y/m/d");
-		$num = 1;
-
-		if(isset($_POST['nome'])){
-			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['cd']."', '". 1 ."', '". 1 ."' )";
-
-			if ($result=$mysqli->query($ins)) {
-          		header('location: servicos.php');
-      }
-      else{
-  			printf($mysqli->error);
-		}
-	}
-
-	?>
+	
 
 <!-- SCRIPTS -->
 <?php include('inc/scripts.php');?>

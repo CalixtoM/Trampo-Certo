@@ -47,7 +47,7 @@
                           <div class='card-body'>
                             <h5 class='card-title'><h6 class='h6-servicos'><b>Serviço</b></h6>".$obj->nm_servico."</h5>
                             <p class='card-text'><h6 class='h6-servicos'><b>Descrição</b></h6>".$obj->ds_servico."</p>
-                            <div><b>Cliente: </b><a href='perfil.php?cdus=$obj->id_usuario'>".$obj->nm_usuario."</a></div><br><br>
+                            <div><b>Cliente: </b><a href='perfil.php?cdus=$obj->id_usuario'>".$obj->nm_usuario."</a></div>
                             <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
                         <center>
