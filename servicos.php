@@ -39,7 +39,7 @@
               while ($obje = $result->fetch_object()) {
                 $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
                   if ($resulte=$mysqli->query($show)) {
-                    while ($obj = $resulte ->fetch_object()) { 
+                    while ($obj = $resulte ->fetch_object()) {
                       echo "
                       <a class='card-servicos' href='servicepage.php?serv=".$obj->cd_servico."' id='a-servicos'>
                       <div class='col-sm-4 flip-in-hor-bottom' style='padding-top: 25px;'>
@@ -47,7 +47,7 @@
                           <div class='card-body'>
                             <h5 class='card-title'><h6 class='h6-servicos'><b>Serviço</b></h6>".$obj->nm_servico."</h5>
                             <p class='card-text'><h6 class='h6-servicos'><b>Descrição</b></h6>".$obj->ds_servico."</p>
-                            <div><b>Cliente: </b>".$obj->nm_usuario."</div>
+                            <div><b>Cliente: </b><a href='perfil.php?cdus=$obj->id_usuario'>".$obj->nm_usuario."</a></div><br><br>
                             <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
                         <center>
@@ -92,6 +92,7 @@
                     }
                   }
         }
+
               ?>
         </div> 
         <br>
