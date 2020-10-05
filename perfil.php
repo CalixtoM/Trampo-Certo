@@ -50,9 +50,7 @@ session_start();
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='updatesenha.php' id='' title='Alterar senha'><b>ALTERAR SENHA <i class='fas fa-wrench' style='font-size:15px'></i></b></a>";
 									echo "</div>";
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
-									if($obj->cd_usuario != $_SESSION['cd']){
-										echo "<a href='reportp.php?cdus' class='btn btn-danger'>Reportar</a>";
-									}
+									
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
 										echo" <button><a class='btn-perfil tracking-in-expand-um' href='visualizaradm.php' id=''>Visualizar usuários</a></button><br>";
@@ -96,9 +94,7 @@ session_start();
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='reportp.php' title='Reportar Perfil'><b>REPORTAR PERFIL <i class='fas fa-pencil-alt' style='font-size:15px'></i></b></a><br>";
 									echo "</div>";
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
-									if($obj->cd_usuario != $_SESSION['cd']){
-										echo "<a href='reportp.php?cdus' class='btn btn-danger'>Reportar</a>";
-									}
+									
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
 										echo" <button><a class='btn-perfil tracking-in-expand-um' href='visualizaradm.php' id=''>Visualizar usuários</a></button><br>";
