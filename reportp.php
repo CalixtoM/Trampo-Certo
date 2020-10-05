@@ -22,13 +22,17 @@ session_start();
 	$data = date("Y/m/d");
 
 	if(isset($_POST['desc'])){
-		$sql = "INSERT INTO report_perfil VALUES(NULL, '".$_POST['desc']."', '" .$data. "')"
+		$sql = "INSERT INTO report_perfil VALUES(NULL, '".$_POST['desc']."', '" .$data."', '".$_SESSION['cd']."', '".$_SESSION['visitado']."', 1)";
+
+		if($result=$mysqli->query($sql)){
+			header('location:perfil.php');
+		}
 	}
 
 ?>
 <br><br><br><br>
 	<div class="container">
-		<form>
+		<form method="post">
 			<div class="row">
 				<div class="col-3">
 					
@@ -55,6 +59,8 @@ session_start();
 			</div>
 		</form>	
 	</div>
+
+
 
 <!-- SCRIPTS -->
 <?php include('inc/scripts.php');?>

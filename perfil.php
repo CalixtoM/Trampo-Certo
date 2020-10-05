@@ -24,6 +24,7 @@ session_start();
 						<?php
 
 						if(!isset($_GET['cdus'])){
+
 							$sql="SELECT * FROM usuario WHERE ds_email='".$_SESSION['usuario']."'";//ele usa o nome, pq nao ta setado, da erro
 							if ($result=$mysqli->query($sql)) {
 								while ($obj = $result ->fetch_object()) {
@@ -71,10 +72,12 @@ session_start();
 							}
 						}
 						if(isset($_GET['cdus'])){
+
 							$sql="SELECT * FROM usuario WHERE cd_usuario='".$_GET['cdus']."'";
 							//Diferencia tela de perfil de usuario diferente do logado
 							if ($result=$mysqli->query($sql)) {
 								while ($obj = $result ->fetch_object()) {
+									$_SESSION['visitado'] = $_GET['cdus'];
 									echo "<div class='col-sm-3 text-center'>";
 										echo "<div class='foto-perfil scale-in-center' title='Sua fotinha xD'></center";
 											echo "<img src='".$obj->ds_usfoto."'><br>";
