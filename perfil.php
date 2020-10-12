@@ -58,6 +58,8 @@ session_start();
 										echo "<br>";
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='updatesenha.php' id='' title='Alterar senha'><b>ALTERAR SENHA <i class='fas fa-wrench' style='font-size:15px'></i></b></a>";
 									echo "</div>";
+
+								
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
 
 
@@ -75,8 +77,9 @@ session_start();
 										echo" <button><a class='btn-perfil tracking-in-expand-tres' href='' id=''>Denúncias</a></button>";
 									}
 
-									echo "</div>";		
-								}
+										echo "</div>";
+
+							}
 							}else{
 							printf($mysqli->error);
 							}
@@ -110,6 +113,9 @@ session_start();
 										echo $obj->ds_usendereco. "<br><br>";
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='reportp.php' title='Reportar Perfil'><b>REPORTAR PERFIL <i class='fas fa-pencil-alt' style='font-size:15px'></i></b></a><br>";
 									echo "</div>";
+									
+								if ($_GET['cdus']==$_SESSION['usuario']) {
+									# code...
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
 									
 									if ($obj->st_admin == 1) {
@@ -124,7 +130,11 @@ session_start();
 										$_SESSION['adm'] = $obj->cd_usuario;
 										echo" <button><a class='btn-perfil tracking-in-expand-tres' href='' id=''>Denúncias</a></button>";
 									}
-									echo "</div>";		
+									echo "</div>";	
+									}else{
+									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Galeria</h3><hr class='hr-perfil'>";
+
+								}	
 								}
 							}else{
 							printf($mysqli->error);
