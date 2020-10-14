@@ -1,4 +1,4 @@
-create database trampo_certo;
+create database if not exists trampo_certo;
 	
 use trampo_certo;
 
@@ -11,10 +11,10 @@ nr_cpf varchar(11) unique not null,
 nr_celular varchar(11) not null,
 dt_nascimento date not null,
 ds_usendereco varchar(80) not null,
-ds_usfoto text not null,
 st_admin boolean not null,
 st_ativo boolean not null,
-ds_avaliacao int not null
+ds_avaliacao int not null,
+st_foto varchar(255) not null
 );
 
 
@@ -65,6 +65,13 @@ id_reportados int not null,
 st_reports boolean not null
 );
 
+create table arquivo (
+  cd_arquivo int(11) not null primary key auto_increment,
+  id_usuariof int(11) not null,
+  ds_arquivo varchar(40) not null,
+  dt_data datetime not null
+);
+
 alter table servico
 add constraint id_usuario foreign key (id_usuario) references usuario (cd_usuario);
 
@@ -88,3 +95,6 @@ add constraint id_reporters foreign key (id_reporters) references usuario (cd_us
 
 alter table report_servico
 add constraint id_reportados foreign key (id_reportados) references usuario (cd_usuario);
+
+alter table arquivo
+add constraint id_usuariof foreign key (id_usuariof) references usuario (cd_usuario);

@@ -28,8 +28,7 @@ session_start();
 	<section class="parallax-perfil">
 		<div class="container text-light">
 			<div class="row">
-						<?php
-
+						<?php						
 						if(!isset($_GET['cdus'])){
 
 							$sql="SELECT * FROM usuario WHERE ds_email='".$_SESSION['usuario']."'";//ele usa o nome, pq nao ta setado, da erro
@@ -38,8 +37,13 @@ session_start();
 								while ($obj = $result ->fetch_object()) {
 									$_SESSION['nm'] = $obj->nm_usuario;
 									echo "<div class='col-sm-3 text-center'>";
-										echo "<div class='foto-perfil scale-in-center' title='Sua fotinha xD'></center";
-											echo "<img src='".$obj->ds_usfoto."'><br>";
+										echo "<div class='foto-perfil scale-in-center' title='Sua fotinha xD'></center>";
+										echo '<img src="'.$obj->st_foto.'">';
+								echo		'<form action="perfil.php" method="POST" enctype="multipart/form-data">
+											<input type="file" name="arquivo">
+											<input type="submit" name="Salvar">
+											</form>';
+
 										echo "</center></div><br><br>";
 										echo "<h6 class='slide-in-left' title='".$obj->nm_usuario." - Usuário nota: ".$obj->ds_avaliacao."'>";
 										echo $obj->nm_usuario;
@@ -55,6 +59,16 @@ session_start();
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='update.php' title='Editar Perfil'><b>EDITAR <i class='fas fa-pencil-alt' style='font-size:15px'></i></b></a><br>";
 										echo "<a data-confirm='Tem certeza que deseja excluir sua conta?'class='perfil-editar animation-perfil slide-in-left-tres' href='delet.php?ex=$obj->cd_usuario' title='Excluir Perfil'><b>EXCLUIR <i class='fas fa-skull-crossbones' style='font-size:15px'></i></b></a><br>";
 										$_SESSION['cd'] = $obj->cd_usuario;
+										if (isset($_FILES['arquivo'])) {
+											$novo_nome=md5(time()).$_FILES['arquivo']['name'];
+											$diretorio="upload/";
+											$foto_completa = $diretorio.$novo_nome;
+											move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome);
+											$foto_sql="UPDATE usuario SET st_foto = '$foto_completa' WHERE cd_usuario = '".$_SESSION['cd']."'";
+												if ($mysqli->query($foto_sql)) {
+								
+												}
+										}
 										echo "<br>";
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='updatesenha.php' id='' title='Alterar senha'><b>ALTERAR SENHA <i class='fas fa-wrench' style='font-size:15px'></i></b></a>";
 									echo "</div>";
@@ -62,7 +76,20 @@ session_start();
 								
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
 
-
+									$query_finalizar="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario=u.cd_usuario WHERE st_servico=0 and id_usuario = '".$_SESSION['cd']."'";
+								if ($finalizar=$mysqli->query($query_finalizar)) {
+									while ($servicof=$finalizar->fetch_object()) {
+										echo	'<div class="card" style="width: 18rem;">
+  											<div class="card-body">
+   												<h5 class="card-title">'.$servicof->nm_servico.'</h5>
+   													<p class="card-text">Agora que decidido, responda o formulario a seguir quando o trabalhador realizar</p>
+    											<button class="btn btn-primary" data-toggle="modal" data-target="#satisModal">Formulario</button>
+  											</div>
+										</div>';
+	}
+}else{
+	printf($mysqli->error);
+}
 									
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
@@ -97,7 +124,7 @@ session_start();
 								while ($obj = $result ->fetch_object()) {
 									$_SESSION['visitado'] = $_GET['cdus'];
 									echo "<div class='col-sm-3 text-center'>";
-										echo "<div class='foto-perfil scale-in-center' title='Sua fotinha xD'></center";
+										echo "<div class='foto-perfil scale-in-center' title='Sua fotinha xD'></center>";
 											echo "<img src='".$obj->ds_usfoto."'><br>";
 										echo "</center></div><br><br>";
 										echo "<h6 class='slide-in-left' title='".$obj->nm_usuario." - Usuário nota: ".$obj->ds_avaliacao."'>";
@@ -113,9 +140,9 @@ session_start();
 										echo $obj->ds_usendereco. "<br><br>";
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='reportp.php' title='Reportar Perfil'><b>REPORTAR PERFIL <i class='fas fa-pencil-alt' style='font-size:15px'></i></b></a><br>";
 									echo "</div>";
-									
+
 								if ($_GET['cdus']==$_SESSION['usuario']) {
-									# code...
+									
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
 									
 									if ($obj->st_admin == 1) {

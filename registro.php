@@ -4,7 +4,7 @@ include('inc/conectar.php');
 
 include('inc/recaptchalib.php');
 
-if(isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['csenha'], $_POST['cpf'], $_POST['telefone'], $_POST['endereco'], $_POST['foto'], $_POST['data']) &&  $_POST['senha'] == $_POST['csenha']){
+if(isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['csenha'], $_POST['cpf'], $_POST['telefone'], $_POST['endereco'], $_POST['data']) &&  $_POST['senha'] == $_POST['csenha']){
 		
 		
 		
@@ -16,7 +16,9 @@ if(isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['csenha'], $_P
 	$telefone = $_POST['telefone'];
 	$endereco = $_POST['endereco'];
 	$data = $_POST['data'];
-	$destino=  $_POST['foto'];
+
+	
+
 
 
 
@@ -28,7 +30,7 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 
 
 	$sql = "INSERT INTO usuario 
-			VALUES (NULL, '". $nome ."', '". $email ."', '". $hash ."', '". $cpf ."', '". $telefone ."', '". $data ."', '". $endereco ."', '". $destino ."','". 0 ."', '". 1 ."', '". 0 ."')";
+			VALUES (NULL, '". $nome ."', '". $email ."', '". $hash ."', '". $cpf ."', '". $telefone ."', '". $data ."', '". $endereco ."','". 0 ."', '". 1 ."', '". 0 ."', '". 0 ."')";
 		if ($result=$mysqli->query($sql)) {
 			$_SESSION['usuario']=$_POST['email'];
 			header("location:perfil.php");
@@ -112,11 +114,6 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 
 						<br>
 						<br>
-
-						<h6 class="text-light h6-adjust-registro">Foto</h6>
-						<i class="fa fa-file-image text-light"></i>
-						
-						<input type="text" name="foto" class=""> Escolha sua foto
 						</span>
 
 						<br>
@@ -129,11 +126,11 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 						<br>
 
 						<center>
-						<div class="g-recaptcha" data-sitekey="6LdSRLEZAAAAABe2CqORPriywRIEaHMdezMYvAHj"></div>
+						<div class="g-recaptcha" data-sitekey="6Lfvn9UZAAAAALBt71RTAcVUFXrJkaa6COGFaQCX"></div>
 						</center>
 						<script src="https://www.google.com/recaptcha/api.js?hl=pt-BR"></script>
 						<?php 
-							$secret = "6LdSRLEZAAAAAKLVqe9ygJNC-McCr9TUaCoi4vpC";
+							$secret = "6Lfvn9UZAAAAANdcb3e5ZvbO8E_OJi-ASsaPLlqw";
 							$response = null;
 							$reCaptcha = new reCaptcha($secret);
 							if(isset($_POST['g-recaptcha-response'])){
