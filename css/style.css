@@ -780,7 +780,9 @@ button:hover {
   width:150px;
   height:150px;
   border-radius:50%;
-  display: inline-block
+  display: inline-block;
+  background-size: 50%;
+  cursor: pointer;
 }
 
 /* ESPAÇO ESTRELAS */
@@ -835,6 +837,73 @@ button:hover {
   transform: scale(1.1,1.1);
   transition: 0.3s;
 }
+
+.animation-perfil-danger {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.animation-perfil-danger:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 1px;
+  background: #dc3545;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  transition: 0.3s;
+
+}
+.animation-perfil-danger:hover:before, .animation-perfil-danger:focus:before, .animation-perfil-danger:active:before {
+  left: 0;
+  right: 0;
+  transform: scale(1.1,1.1);
+  transition: 0.3s;
+}
+
+.bg-custom {
+  background-color: #121212;
+}
+
+.editfoto{
+  display: none;
+}
+
+.label_edit_foto{
+  padding: 10px 0px;
+  width: 200px;
+  color: white;
+  text-transform:;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  border-bottom: 2px #32CD32 solid; 
+  transition: 0.2s ease;
+}
+
+.label_edit_foto:hover{
+  width: 200px;
+  background: #32CD32;
+  color: white;
+  text-transform:;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
 
 /* BOTOES DAS OPÇÕES */
 .btn-perfil{
@@ -915,6 +984,44 @@ button:hover {
     opacity: 1;
   }
 }
+
+.scale-in-centerupum {
+  -webkit-animation: scale-in-centerup 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+          animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+.scale-in-centerupdois {
+  -webkit-animation: scale-in-centerup 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+          animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+}
+
+
+@-webkit-keyframes scale-in-centerup {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-centerup {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 
 /*======================================== NAVBAR ========================================*/
 /* COR DE FUNDO */
@@ -1330,6 +1437,20 @@ button:hover {
   }
 }
 
+.cliente-servicos{
+  color: white;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.cliente-servicos:hover{
+  color: #32CD32;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+
+
 /*======================================== ADD_SERVIÇOS ========================================*/
 
 .parallax-addservicos {
@@ -1518,4 +1639,37 @@ button:hover {
 .tr:hover{
   color: #32CD32;
   transition: 0.2s ease;
+}
+
+/*===================================== REPORT =====================================*/
+
+/* FUNDO */
+.parallax-report {
+  background: #121212;
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*===================================== SERVIÇOPAGE =====================================*/
+
+/* FUNDO */
+.parallax-servicopage {
+  background: #121212;
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+.foto-servicopage{
+  width: 200px;
+  height: 200px;
 }
