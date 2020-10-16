@@ -17,11 +17,12 @@
             <h5 id="h5-footer">Informações</h5>
           </p>
           <a href="index.php" class="tc-animation-footer" id="a-footer">Home</a><br>
-          <a href="sobre.php" class="tc-animation-footer" id="a-footer">Sobre Nós</a><br>
           <a href="contato.php" class="tc-animation-footer" id="a-footer">Contato</a><br>
+           <a href="servicos.php" class="tc-animation-footer" id="a-footer">Serviços</a><br>
+          <a href="sobre.php" class="tc-animation-footer" id="a-footer">Sobre Nós</a><br>
+          <a href="policies.php" class="tc-animation-footer" id="a-footer">Termos de Uso</a><br>
           <a href="tutorial.php" class="tc-animation-footer" id="a-footer">Como funciona</a><br>
-          <a href="policies.php" class="tc-animation-footer" id="a-footer">Termos de Uso</a>
-          <br><br>
+          <br>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <p>
