@@ -29,11 +29,11 @@ if (isset($_POST['nome'])) {
 
 <!-- CONTEÚDO DA PÁGINA -->
 <div id="tc-index">
-	<section class="parallax-registro">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 text-center flip-in-ver-right">
-					<form method="post" enctype="multpart/form-data">
+	<form method="post" enctype="multpart/form-data">
+		<section class="parallax-registro">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 text-center flip-in-ver-right">
 						<h2 class="h2-login">Editar Perfil</h2>
 						<?php
 						$sql="SELECT * FROM usuario WHERE ds_email='".$_SESSION['usuario']."'";//ele usa o nome, pq nao ta setado, da 	erro
@@ -75,27 +75,20 @@ if (isset($_POST['nome'])) {
 						<br>
 						<br>
 
-						<h6 class="text-light h6-adjust-registro">Foto</h6>
-						<i class="fa fa-file-image text-light"></i>
-						
-						<input type="text" name="foto"  required value="<?php echo $obj->ds_usfoto; ?>"> Altere sua foto
-						</span>
-
-						<br>
-						<br>
 						<?php 
 						}
 						}
 						?>
 
 						</center>
-						<input type="submit" name="enviar" class="btn btn-outline-success" value="Editar">
-						<br><br>
-					</form>				
 				</div>
 	    	</div>
-		</div>
-	</section>
+			<center>
+				<input type="submit" name="enviar" class="btn btn-outline-success scale-in-centerupum" value="Editar"><br>
+				<button style="text-transform: capitalize;"><a href="perfil.php" class="btn btn-outline-warning scale-in-centerupdois"><i class='fas fa-angle-left'></i> Voltar</a></button>
+			</center>
+		</section>
+	</form>	
 </div>
 	
 <!-- SCRIPTS -->

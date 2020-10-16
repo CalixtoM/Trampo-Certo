@@ -64,21 +64,28 @@ if(isset($_POST['senha'])){
 		<div class="container text-light">
 			<div class="col-sm-12 text-center">
 				<form method="post" >
-					<h6 class="text-light h6-adjust-registro">Senha</h6>
+					<div class="slide-in-left-titulo">
+					<h6 class="text-light h6-adjust-registro">Senha Atual</h6>
 					<i class="fa fa-lock text-light"></i>
 					<input type="password" name="senha" class="input-registro" placeholder="Insira sua senha" required>
+					</div>
 					<br>
-					<br>
+					<div class="slide-in-left-desc">
 					<h6 class="text-light h6-adjust-registro">Nova Senha</h6>
 					<i class="fa fa-lock text-light"></i>
 					<input type="password" name="senhanova" class="input-registro" placeholder="Insira sua nova senha" required>
+					</div>
+					<br>
+					<div class="slide-in-left-dt">
 					<h6 class="text-light h6-adjust-registro">Confirmar nova Senha</h6>
 					<i class="fa fa-lock text-light"></i>
 					<input type="password" name="senhanovac" class="input-registro" placeholder="Confirme sua senha" required>
-					<br><br>
-					<input  style="text-transform: capitalize;" type="submit" name="enviar" class="btn btn-outline-success" value="Alterar Senha">
-					<br><br>
-					<button style="text-transform: capitalize;"><a href="perfil.php" class="btn btn-outline-warning"><i class='fas fa-angle-left'></i> Voltar</a></button>
+					<br>
+					</div>
+					<br>
+					<input  style="text-transform: capitalize;" type="submit" name="enviar" class="btn btn-outline-success scale-in-centerupum" value="Alterar Senha">
+					<br>
+					<button style="text-transform: capitalize;"><a href="perfil.php" class="btn btn-outline-warning scale-in-centerupdois"><i class='fas fa-angle-left'></i> Voltar</a></button>
 					
 				</form>
 			</div>

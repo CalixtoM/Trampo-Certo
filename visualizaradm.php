@@ -46,8 +46,7 @@ session_start();
 				<td>". $obj->nr_celular."</td>
 				<td>". $obj->ds_usendereco."</td>
 				<td><img src='".$obj->ds_usfoto."'<td>
-				<td>". $obj->ds_avaliacao."</td>                                    
-
+				<td>". $obj->ds_avaliacao."</td>
 				<td><a href='excluiradm.php?c=".$obj->cd_usuario."' class=' btn btn-outline-danger text-center'>Excluir</a></td>";
 
 			}

@@ -30,36 +30,36 @@ session_start();
 	}
 
 ?>
-<br><br><br><br>
-	<div class="container">
-		<form method="post">
-			<div class="row">
-				<div class="col-3">
-					
+<div id="tc-index">
+	<section class="parallax-report">
+		<div class="container text-light">
+			<form method="post">
+				<div class="row">
+					<div class="col-2">	
+					</div>
+					<div class="col-8 text-center text-danger">
+						<h2>INFORME O MOTIVO DE SUA DENÚNCIA</h2>
+					</div>
 				</div>
-				<div class="col-6">
-					<h2>Informe o motivo de sua Denuncia</h2>
+				<div class="row">
+						<div class="col-3">	
+						</div>
+					<div class="col-6">
+						<textarea class="form-control" placeholder="Explique aqui o que aconteceu" name="desc"></textarea>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-3">
-					
+				<br>
+				<div class="row">
+					<div class="col-4">
+					</div>
+					<div class="col-4 text-center">
+					<input type="submit" name="" class="btn btn-outline-danger">
 				</div>
-				<div class="col-6">
-					<textarea class="form-control" placeholder="Explique aqui o que aconteceu" name="desc"></textarea>
 				</div>
-			</div><br>
-			<div class="row">
-				<div class="col-5">
-					
-				</div>
-				<div class="col-7">
-					<input type="submit" name="" class="btn btn-success">
-				</div>
-			</div>
-		</form>	
-	</div>
-
+			</form>	
+		</div>
+	</section>
+</div>
 
 
 <!-- SCRIPTS -->

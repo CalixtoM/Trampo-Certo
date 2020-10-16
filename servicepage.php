@@ -14,18 +14,28 @@
   <script src="./js/bootstrap.min.js"></script>
 <!-- NAVBAR -->
 <?php include('inc/navbar.php');?>
-<br><br><br><br><br>
+<div id="tc-index">
+  <section class="parallax-servicopage">
+    <div class="container">
+      <div class="col-sm-4">
+      </div>
+    </div class="col-sm-4">
+    <center>
+      
+
+
  <?php
   $_SESSION['usuario'];
   $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario WHERE '".$_GET['serv']."' = s.cd_servico";
   $orca="SELECT * FROM orcamento AS o INNER JOIN usuario AS ui ON o.id_usuariot = ui.cd_usuario WHERE '".$_GET['serv']."' = id_servico ORDER BY '".$_SESSION['cd']."'";
   $orcam="SELECT * FROM orcamento AS o INNER JOIN usuario AS ui ON o.id_usuariot = ui.cd_usuario WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = o.id_usuariot;";
-
+              $_SESSION['serv']=$_GET['serv'];
                 if ($resulte=$mysqli->query($show)) {
                     while ($obj = $resulte ->fetch_object()) {
                     	$ser=$obj->id_usuario;
-                    	echo  "<img src='".$obj->ds_usfoto."'> ".$obj->nm_usuario."<br>";
-                    	echo $obj->nm_servico."<br><br>";
+                    	echo  "<img src='".$obj->st_foto."' class='foto-servicopage'>";
+                    	echo "<div class='text-light'>".$obj->nm_usuario."</div>";
+                      echo "<div class='text-light'>".$obj->nm_servico."</div>";
 
                     	 if ($result=$mysqli->query($orca)) {
                     	 	while ($obje = $result ->fetch_object()) {                      		              	 	
@@ -37,7 +47,7 @@
                  								echo "Descrição: ".$obje->ds_orcamento."<br><br>";
                                 $valor = $obje->vl_orcamento;
                                 $nome = $obje->nm_usuario;
-                                echo "<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#confModal'>Escolher Orçamento</button> <br>      ";
+                                echo "<a class='btn btn-info btn-lg' href='orcamento.php?orc=".$obje->cd_orcamento."'>Escolher Orçamento</a> <br>      ";
                  							}
                  		   					if ($_SESSION['cd'] == $obje->id_usuariot) {
                  		   						echo "<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#editModal'>Editar Orçamento</button>     ";
@@ -51,7 +61,7 @@
 						}
 						if ($resulti=$mysqli->query($orcam)) {
                     	 	if ($resulti->num_rows == 0 && $_SESSION['cd'] != $ser) {
-                    	 		echo '<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Orçamento</button>';
+                    	 		echo '<br><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Orçamento</button>';
                     	 	}
 															
 						}
@@ -92,7 +102,7 @@
 		        		<h4 class="modal-title">Preencha as Informações para adicionar um Orçamento</h4>
 		        </div>
 		        	<div class="modal-body">
-		        		<form method="post" enctype="multpart/form-data">
+		        	<?php echo	'<form method="post" action="servicepage.php?serv='.$_GET['serv'].'">';?>
 		        		<?php
 		        		echo 'Valor: <input type="number" name="valor" class="valor-mask" id="orca-input" data-mask="0000.00" min="0" max="9999" step="any" required /><br><br>';
 		        		echo 'Descrição do Serviço a prestar: <input type="text" name="desc" max"500" required><br><br>';
@@ -104,7 +114,7 @@
 		        					if($resulti->num_rows == 0){
 										$ins = "INSERT INTO orcamento VALUES(NULL,'".$_GET['serv']."','".$_SESSION['cd']."','".$_POST['valor']."','".$_POST['desc']."')";
 										if ($result=$mysqli->query($ins)) {
-	          								header('location:http://localhost:8080/tcc/servicepage.php?serv='.$_GET['serv'].'');
+                      header('location:servicepage.php?serv='.$_GET['serv'].'');                          
 	      								}else{
 	  										printf($mysqli->error);
 											}
@@ -140,17 +150,18 @@
 		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
 		        		<h4 class="modal-title">Edite as Informações do seu Orçamento</h4>
 		        </div>
-		        <?php	echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; ?>
-		        		<form method="post" enctype="multpart/form-data">
-		    <?php
+		        <?php	echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; 
+               echo '<form method="post" action="servicepage.php?serv='.$_GET['serv'].'">';
+
 		        			echo 'Valor: <input type="number" name="valorup" value="'.$objet->vl_orcamento.'" class="valor-mask"  data-mask="0000.00" min="0" max="9999" step="any" required /><br><br>';
 		        			echo 'Descrição do Serviço a prestar: <input type="text" value="'.$objet->ds_orcamento.'" name="descup" max"500" required><br><br>';
 		        			echo '<center><input type="submit" name="Editar" class="card-link btn btn-outline-info text-center"></center>';
+                  echo '</form>';
 
 		        		if (isset($_POST['descup'])){
 		        			$editar="UPDATE orcamento SET vl_orcamento = '".$_POST['valorup']."', ds_orcamento = '".$_POST['descup']."' WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
 		        				if($ress=$mysqli->query($editar)){
-		        				 	header('location:http://localhost:8080/tcc/servicepage.php?serv='.$_GET['serv'].'');		        					
+		        				 	header('location:servicepage.php?serv='.$_GET['serv'].'');		        					
 		        				}else{
 		        					print($mysqli->error);
 		        				}
@@ -165,6 +176,7 @@
 		        </div>
 		    </div> 
   	</div>
+  </div>
 
   		
    	<!-- Modal -->
@@ -212,9 +224,9 @@
 
 
         <?php echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; ?>
-            <form>
+              <? echo '<form method="post" action="servicepage.php?serv='.$_GET['serv'].'" enctype="multpart/form-data">';?>
               <?php
-                $query="SELECT * FROM orcamento AS orc INNER JOIN usuario AS usu ON usu.cd_usuario = orc.id_usuariot WHERE '".$_SESSION['cd']."' = id_usuariot;";
+                $query="SELECT * FROM orcamento AS orc INNER JOIN usuario AS usu ON usu.cd_usuario = orc.id_usuariot WHERE ".$_GET['orc']." = cd_orcamento";
                   if ($respect = $mysqli->query($query)) {
                     while ($object = $respect->fetch_object()) { 
                     
@@ -231,7 +243,8 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
+    </center>
+    </div>
   </div>
 </div>
   	<script type="text/javascript">
@@ -239,3 +252,10 @@
       $('#orca').mask('0000.00');
 
     </script>
+
+
+<!-- SCRIPTS -->
+<?php include('inc/scripts.php');?>
+
+<!-- FOOTER -->
+<?php include('inc/footer.php');?>

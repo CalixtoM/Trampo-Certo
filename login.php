@@ -1,7 +1,7 @@
 <!-- CONEXÃO COM BANCO E PARTE PHP DE LOGIN/CRIPTOGRAFIA -->
 <?php
 session_start();
-
+$errodesenha = "";
 include ("inc/conectar.php");
 
 if (isset($_SESSION['usuario'])) {
@@ -35,7 +35,12 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 			}
 			
 		} else {
-			echo 'Senha incorreta!';
+			$errodesenha = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  					<strong>Senha ou E-mail</strong> incorretos.
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    				<span aria-hidden="true">&times;</span>
+  						</button>
+					</div>';
 		}
 		}
 	}
@@ -61,7 +66,11 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					<form method="post">
+						<?php
+							echo $errodesenha;
+						?>
 							<h2 class="h2-login">Login</h2>
+
 						<input type="email" id="email" name="email" placeholder="Insira seu email" class="input-login">
 						<br>
 						<br>

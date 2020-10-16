@@ -32,7 +32,7 @@ session_start();
 				</div>
 				<div class="col-sm-4 col-sobre scale-in-center-one">
 					<center>
-						<img src="img/linearts/localizacao-branco.png" width="100">
+						<img src="img/linearts/localizacao.png" width="200">
 					</center>
 					<h4 class="h5-sobre">De onde somos?</h4>
 					<h6 class="text-justify h6-sobre">
@@ -41,7 +41,7 @@ session_start();
 				</div>
 				<div class="col-sm-4 col-sobre scale-in-center-two">
 					<center>
-						<img src="img/linearts/pessoas-branco.png" width="100">
+						<img src="img/linearts/pessoas-branco.png" width="200">
 					</center>
 					<h5 class="h5-sobre">Quem está no projeto?</h5>
 					<h6 class="text-justify h6-sobre">
@@ -57,7 +57,7 @@ session_start();
 				</div>
 				<div class="col-sm-4 col-sobre scale-in-center-three">
 					<center>
-						<img src="img/linearts/linguagem-branco.png" width="100">
+						<img src="img/linearts/linguagem-branco.png" width="200">
 					</center>
 					<h5 class="h5-sobre">Que linguagens usamos?</h5>
 

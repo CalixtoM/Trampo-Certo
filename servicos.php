@@ -37,7 +37,7 @@
           if($result = $mysqli->query($sql)) {
             if($result->num_rows==1){
               while ($obje = $result->fetch_object()) {
-                $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
+                $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario WHERE st_servico = 1";
                   if ($resulte=$mysqli->query($show)) {
                     while ($obj = $resulte ->fetch_object()) {
                       echo "
@@ -51,9 +51,9 @@
                               echo "<div><b>Cliente: </b>".$obj->nm_usuario."</div>";
                             }
                             if($_SESSION['cd'] != $obj->id_usuario){
-                              echo "<div><b>Cliente: </b><a href='perfil.php?cdus=$obj->id_usuario'>".$obj->nm_usuario."</a></div>";
+                              echo "<div><b>Cliente: </b><a href='perfil.php?cdus=$obj->id_usuario' class='cliente-servicos'>".$obj->nm_usuario."</a></div>";
                             }
-                            echo "<div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
+                            echo "<div class='text-light'><b class='text-light'>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
                         <center>
                       </a>";
@@ -64,7 +64,7 @@
                               echo "<a href='delet.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-warning text-center'> Excluir</a><br><br>";
                           
                           }else{
-                             echo "<a href='orcamento.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a>";
+                             echo "<a href='servicepage.php?serv=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a>";
                               echo "<a href='report.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br><br>";
                           
                           }
@@ -78,10 +78,12 @@
                   }
                 }
               }
+            }else{
+              echo "Cri...Cri... Sem serviços disponiveis cadastre agora mesmo o seu!";
             }
           }
         }else{
-          $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario";
+          $show="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario = u.cd_usuario WHERE st_servico = 1";
                   if ($resulte=$mysqli->query($show)) {
                     while ($obj = $resulte ->fetch_object()) { 
                       echo "<a class='card-servicos' href='login.php' id='a-servicos'>
@@ -90,8 +92,8 @@
                           <div class='card-body'>
                             <h5 class='card-title'><h6 class='h6-servicos'><b>Serviço</b></h6>".$obj->nm_servico."</h5>
                             <p class='card-text'><h6 class='h6-servicos'><b>Descrição</b></h6>".$obj->ds_servico."</p>
-                            <div><b>Cliente: </b>".$obj->nm_usuario."</div>
-                            <div><b>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
+                            <div class='cliente-servicos'><b>Cliente: </b>".$obj->nm_usuario."</div>
+                            <div class='text-light'><b class='text-light'>Data de Prazo: </b>".date('d/m/Y', strtotime($obj->dt_prazo))."</div>
                           </div>
                           <center></a></div></div>";
                     }
