@@ -36,6 +36,7 @@ session_start();
 							if ($result=$mysqli->query($sql)) {
 								while ($obj = $result ->fetch_object()) {
 									$_SESSION['nm'] = $obj->nm_usuario;
+									$_SESSION['end'] = $obj->ds_usendereco;
 									echo "<div class='col-sm-3 text-center'>";
 									echo "<div class='foto-perfil scale-in-center'></center>";
 									echo '<div data-toggle="tooltip" title="Editar Foto" data-placement="right">';

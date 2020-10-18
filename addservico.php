@@ -24,7 +24,7 @@ session_start();
 		$num = 1;
 
 		if(isset($_POST['nome'])){
-			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". $data ."', '".$_POST['prazo']."', '".$_SESSION['cd']."', '". 1 ."', '". 1 ."','". 0 ."' )";
+			$ins = "INSERT INTO servico VALUES (NULL, '".$_POST['nome']."', '".$_POST['desc']."', '".$_SESSION['end']."' '". $data ."', '".$_POST['prazo']."', '".$_SESSION['cd']."', '". 1 ."', '". 1 ."','". 0 ."' )";
 
 			if ($result=$mysqli->query($ins)) {
           		header('location: servicos.php');
