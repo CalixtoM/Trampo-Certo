@@ -103,7 +103,7 @@ session_start();
 									}	
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
-										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='' id=''>Categorias</a></button><br>";
+										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='categoria.php' id=''>Categorias</a></button><br>";
 									}
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
@@ -157,7 +157,7 @@ session_start();
 									}	
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
-										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='' id=''>Categorias</a></button><br>";
+										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='categoria.php' id=''>Categorias</a></button><br>";
 									}
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
