@@ -52,15 +52,63 @@ session_start();
 			</div>
 			<div class="col-md-4">
 				<input type="submit" class="btn btn-success" name="">
+				</form>
 			</div>
 		</div>
 		<div class="row">
 			<hr>
 		</div>
+		<div class="row">
+			<div class="col-md-3">
+				
+			</div>
+			<div class="col-md-6">
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Nome</th>
+				      <th scope="col">Descrição</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+
+
+
+				<?php
+				$ct = "SELECT * FROM categoria";
+				
+				if($result=$mysqli->query($ct)){
+					while($obj = $result->fetch_object()){
+						echo '
+						<tr>
+						      <th scope="row">'.$obj->cd_categoria.'</th>
+						      <td>'.$obj->nm_categoria.'</td>
+						      <td>'.$obj->ds_categoria.'</td>
+						      <td><a type="button" class="btn btn-warning" href="editcat.php?cat='.$obj->cd_categoria.'">Editar</a></td>
+						      <td><a class="btn btn-danger" href="deletecat.php?cat='.$obj->cd_categoria.'">Excluir</a></td>
+						    </tr>
+						  ';
+					}
+				}
+				?>
+				  </tbody>
+				</table>
+
+
+			</div>
+		</div>
 	</div>
 
 </body>
 </html>
+
+<!-- Modal Editar -->
+
+	
+
+
+
 
 <!-- SCRIPTS -->
 <?php include('inc/scripts.php');?>
