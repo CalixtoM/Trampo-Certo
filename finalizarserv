@@ -1,0 +1,33 @@
+<?php
+session_start();
+	/*<--------------- ANTI-CHEAT --------------->*/
+	if (!(isset($_SESSION["usuario"]))) {
+		header("location:login.php");
+	}
+	/*--------------------------------------------*/
+	include ("inc/conectar.php");
+?>
+<?php
+if (isset($_GET['finalizar'])) {
+	$query_finalizar="UPDATE servico SET st_servico=0 WHERE cd_servico = '".$_GET['finalizar']."';";
+	if ($result=$mysqli->query($query_finalizar)) {
+		header("location:perfil.php");
+	}
+}else{
+	$query_finalizar="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario=u.cd_usuario WHERE st_servico=0 and id_usuario = '".$_SESSION['usuario']."' ORDER BY desc;";
+	if ($result=$mysqli->query($query_finalizar)) {
+	while ($servicof=$result->fetch_object()) {
+	echo	'<div class="card" style="width: 18rem;">
+  				<div class="card-body">
+   					<h5 class="card-title">'.$servicof->nm_servico.'</h5>
+   						<p class="card-text">Agora que decidido, responda o formulario a seguir quando o trabalhador realizar</p>
+    						<button class="btn btn-primary" data-toggle="modal" data-target="#satisModal">Formulario</button>
+  				</div>
+			</div>';
+	}
+}
+}
+
+
+
+?>

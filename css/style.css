@@ -1673,3 +1673,14 @@ button:hover {
   width: 200px;
   height: 200px;
 }
+
+/*===================================== ESTRELAS NOTA =====================================*/
+
+.estrelas input[type=radio]{
+  display: none;
+}.estrelas label i.fa:before{
+  content: '\f005';
+  color: #FC0;
+}.estrelas  input[type=radio]:checked  ~ label i.fa:before{
+  color: #CCC;
+}

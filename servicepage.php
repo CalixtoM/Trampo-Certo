@@ -33,18 +33,18 @@
                 if ($resulte=$mysqli->query($show)) {
                     while ($obj = $resulte ->fetch_object()) {
                     	$ser=$obj->id_usuario;
-                    	echo  "<img src='".$obj->st_foto."' class='foto-servicopage'>";
+                    	echo  "<img src='".$obj->st_foto."' class='foto-perfil'>";
                     	echo "<div class='text-light'>".$obj->nm_usuario."</div>";
                       echo "<div class='text-light'>".$obj->nm_servico."</div>";
 
                     	 if ($result=$mysqli->query($orca)) {
                     	 	while ($obje = $result ->fetch_object()) {                      		              	 	
-                    	 		echo "Orçamentos: <br>";	
+                    	 		echo "<div class='text-light'>Orçamentos: <br></div>";	
                  		   				if ($result->num_rows>=1) {	
-                 		   			echo "Usuarios: ".$obje->nm_usuario."<br>";
-                 		   				echo "Valor cobrado: ".$obje->vl_orcamento."<br><br>";
+                 		   			echo "<div class='text-light'>Usuarios: ".$obje->nm_usuario."<br></div>";
+                 		   				echo "<div class='text-light'>Valor cobrado: ".$obje->vl_orcamento."<br><br></div>";
                  		   					if ($_SESSION['cd'] == $obj->id_usuario) {
-                 								echo "Descrição: ".$obje->ds_orcamento."<br><br>";
+                 								echo "<div class='text-light'>Descrição: ".$obje->ds_orcamento."<br><br></div>";
                                 $valor = $obje->vl_orcamento;
                                 $nome = $obje->nm_usuario;
                                 echo "<a class='btn btn-info btn-lg' href='orcamento.php?orc=".$obje->cd_orcamento."'>Escolher Orçamento</a> <br>      ";
@@ -60,34 +60,11 @@
 							}
 						}
 						if ($resulti=$mysqli->query($orcam)) {
-                    	 	if ($resulti->num_rows == 0 && $_SESSION['cd'] != $ser) {
-                    	 		echo '<br><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Orçamento</button>';
-                    	 	}
+                if ($resulti->num_rows == 0 && $_SESSION['cd'] != $ser) {
+                	echo '<br><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Orçamento</button>';
+                }
 															
 						}
-
-	// $user="SELECT * FROM usuario AS us INNER JOIN orcamento AS orc ON us.cd_usuario = orc.id_usuariot INNER JOIN servico AS se ON us.cd_usuario = se.id_usuario WHERE  '".$_SESSION['usuario']."' = ds_email AND '".$_GET['serv']."' = se.cd_servico";
- //                if ($resulte=$mysqli->query($user)) { 
- //                echo "HI"; 			
- //                    while ($obj = $resulte ->fetch_object()) {
- //                    	echo "hi";
- //                    	$_SESSION['cd']=$obj->cd_usuario;
- //                    	echo $_SESSION['cd'];
- //                    	if ($obj->cd_usuario != $obj->id_usuario) {
- //                    		$orc= "SELECT * FROM orcamento WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
- //                    		if ($resultt=$mysqli->query($orc)) {  	
- //                    			if($resultt->num_rows == 0){
- //                    				echo '<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Adicionar Orçamento</button>';
- //                    			}else{
- //   									echo "<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#editModal'>Editar Orçamento</button>     ";
- //   									echo "<button type='button' class='btn btn-danger btn-lg' data-toggle='modal' data-target='#excluModal'>Excluir Orçamento</button>";
- //                    			}
- //                    		}		
- //                    	}
- //                    }
- //  				}else{
- //  					printf($mysqli->error);
- //  				}
    ?>
    <br>
 

@@ -27,8 +27,7 @@ dt_servico date not null,
 dt_prazo date not null, 
 id_usuario int not null,
 id_categoria int not null,
-st_servico boolean not null,
-id_orcamento int(11) not null
+st_servico boolean not null
 );
 
 
@@ -99,7 +98,3 @@ add constraint id_reportados foreign key (id_reportados) references usuario (cd_
 
 alter table arquivo
 add constraint id_usuariof foreign key (id_usuariof) references usuario (cd_usuario);
-
-alter table usuario
-add constraint id_orcamento foreign key (id_orcamento) references orcamento (cd_orcamento);
-

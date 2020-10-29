@@ -126,11 +126,11 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 						<br>
 
 						<center>
-						<div class="g-recaptcha" data-sitekey="6Lfvn9UZAAAAALBt71RTAcVUFXrJkaa6COGFaQCX"></div>
+						<div class="g-recaptcha" data-sitekey="6Ld4B9oZAAAAAPc5kVsGLlZEOxsdYbtvzK3eez4W"></div>
 						</center>
 						<script src="https://www.google.com/recaptcha/api.js?hl=pt-BR"></script>
 						<?php 
-							$secret = "6Lfvn9UZAAAAANdcb3e5ZvbO8E_OJi-ASsaPLlqw";
+							$secret = "6Ld4B9oZAAAAAPZIEaSbGvyNUjvIaMT0NZmMSScu";
 							$response = null;
 							$reCaptcha = new reCaptcha($secret);
 							if(isset($_POST['g-recaptcha-response'])){

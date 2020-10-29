@@ -15,22 +15,19 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 
 		if($result->num_rows==1){
 			while ($obj = $result ->fetch_object()) {
-
-	
-
 		$senha = $_POST['senha'];
 		$hash = $obj->ds_password;
 		$_SESSION['cd'] = $obj->cd_usuario;
-
 		if (crypt($senha, $hash) == $hash) {
 			//aqui armazeno o email do banco ja. nao tem como dar errado.
 			$_SESSION['senha']=$hash;
 			$_SESSION['usuario']=$obj->ds_email;
 			if (isset($_SESSION['usuario'])) { // olha aqui fiz uma verificação pra SO ENTRAR NO PERFIL SE TIVER COM A SESSION PREENCHIDA
-				echo "<h1>".$_SESSION['usuario']."</h1>";
-				header("location:perfil.php");
-				//ENTAO SE PASSAR DAQUI a session funciona!!!!! voltando (ta logando, so q o perfil manda devolta pro index)
-
+				if (isset($_SESSION['novasenha'])) {
+					header("location:updatesenha.php");
+				}else{
+				header("location:perfil.php");//ENTAO SE PASSAR DAQUI a session funciona!!!!! voltando (ta logando, so q o perfil manda devolta pro index)
+				}
 
 			}
 			
@@ -83,7 +80,7 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 					<br>
 				</div>
 				<div class="col-sm-6 text-right">
-					<a href="recuperar.php" class="tc-animation-login" id="a-login">Recuperar senha</a>
+					<a href="recuperarsenha.php" class="tc-animation-login" id="a-login">Recuperar senha</a>
 				</div>
 				<div class="col-sm-6">
 					<a href="registro.php" class="tc-animation-login" id="a-login">Não possui conta?</a>

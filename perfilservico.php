@@ -27,12 +27,15 @@
       			<td>'.date('d/m/Y', strtotime($obj->dt_servico)).'</td>
       			<td>'.date('d/m/Y', strtotime($obj->dt_prazo)).'</td>
       			<td>'.$obj->nm_categoria.'</td>';
-      			if($obj->st_servico != 0 ){
+      			if($obj->st_servico == 1 ){
       				echo '<td>Ativo</td>';
       			}
-      			if($obj->st_servico != 1){
-      				echo '<td>Inativo</td>';
+      			if($obj->st_servico == 0){
+      				echo '<td>Em processo</td>';
       			}
+            if($obj->st_servico == 2){
+              echo '<td>Resolvido</td>';
+            }
       			;
  		}
  	}
