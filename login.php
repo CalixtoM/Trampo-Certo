@@ -49,9 +49,10 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 
 <!-- HEAD -->
 <?php include('inc/head.php');?>
-<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="750567248578-ippef6rb8o0vipsi3fjun8uh29aaeuvi.apps.googleusercontent.com">
 <!-- TÍTULO DA PÁGINA -->
 <title>Trampo Centro - Sobre Nós</title>
+
 
 <!-- NAVBAR -->
 <?php include('inc/navbar.php');?>
@@ -87,29 +88,25 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 					<br><br>
 				</div>
 				<div class="col-sm-12 text-center"><center>
-					<div id="my-signin2"></div>
+					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 				</center></div>
+				<p id='msg'></p>
   <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
+		function onSignIn(googleUser) { //obtém as informações do usuário que fez login usando o Google
+	var profile = googleUser.getBasicProfile();
+	console.log('ID: ' + profile.getId());
+	console.log('Name: ' + profile.getName());
+	console.log('Email: ' + profile.getEmail());
+   	var personName = profile.getName();
+   	var personEmail = profile.getEmail();
+   	var personId = profile.getId();
+   	var userPicture = profile.getImageUrl(); 
+   	googleUser.disconnect();
+   	window.location.href = "valida.php?name=" + personName + "&email=" + personEmail + "&id=" + personId + "&picture=" + userPicture;	//redireciona o usuário junto com suas informações em variáveis
+}	
   </script>
 
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+ 
 	    	</div>
 		</div>
 	</section>
@@ -117,6 +114,7 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 	
 <!-- SCRIPTS -->
 <?php include('inc/scripts.php');?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <!-- FOOTER -->
 <?php include('inc/footer.php');?>

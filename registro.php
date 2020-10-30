@@ -40,6 +40,7 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 }
 ?>
 
+
 <!-- HEAD -->
 <?php include('inc/head.php');?>
 
@@ -81,6 +82,7 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 
 						<br>
 						<br>
+						<br>
 
 						<h6 class="text-light h6-adjust-registro">Confirmar Senha</h6>
 						<i class="fa fa-lock text-light"></i>
@@ -93,16 +95,16 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 
 						<h6 class="text-light h6-adjust-registro">CPF</h6>
 						<i class="fa fa-address-card text-light"></i>
-						<input type="text" class="cpf-mask input-registro" id="example-input-2" placeholder="Insira seu CPF" maxlength="11" autocomplete="off" data-mask="000.000.000-00" name="cpf" required><br>
-						<small class="text-muted">ex. 99966633311</small>
+						<input type="text" class="input-registro" placeholder="Insira seu CPF" name="cpf" required minlength="11"  maxlength="11"><br>
+						<small class="text-muted">ex. 00011100010</small>
 
 						<br>
 						<br>
 
 						<h6 class="text-light h6-adjust-registro">Celular</h6>
         				<i class="fa fa-mobile-alt text-light"></i>
-						<input type="text" class="input-registro" id="phone-input" name="telefone" placeholder="Insira seu número de celular" required><br>
- 						<small class="text-muted">ex. (99) 99999-9999</small>
+						<input type="text" class="input-registro" name="telefone" placeholder="Insira seu número de celular" minlength="11" maxlength="11" required><br>
+ 						<small class="text-muted">ex. 11000000000</small>
 
 						<br>
 						<br>
@@ -116,12 +118,10 @@ $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
 						<br>
 						</span>
 
-						<br>
-						<br>
 
 						<h6 class="text-light h6-adjust-registro">Data de Nascimento</h6>
 						<i class="fa fa-birthday-cake text-light"></i>
-						<input type="date" class="input-registro" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off" name="data" required>
+						<input type="date" class="input-registro" placeholder="Ex.: dd/mm/aaaa" onkeypress="$(this).mask('00/00/0000')" minlength="10" autocomplete="off" name="data" required>
 						<br>
 						<br>
 

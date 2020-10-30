@@ -16,13 +16,10 @@ session_start();
 <!-- NAVBAR -->
 <?php include('inc/navbar.php');?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body><br><br><br><br><br>
-  <div class="container">
+<div id="tc-index">
+  <section class="parallax-editcat">
+    <div class="container text-light">
+      <div class="container">
 <?php 
     
     $edit = "SELECT * FROM categoria WHERE cd_categoria = '".$_GET['cat']."'";
@@ -31,18 +28,41 @@ session_start();
       while($obj = $result->fetch_object()){
         echo '
           <form method="post">
-        <div class="row">
-          <div class="col-md-4">
-            <input type="text" value="'.$obj->nm_categoria.'" name="nmedit" class="form-control">
+          <h2 id="h2-addservicos" class="tracking-in-expand text-center">EDIÇÃO DE CATEGORIAS</h2><br>
+
+          <div class="row">
+          <div class="col-sm-3">
           </div>
-          <div class="col-md-4">
-            <input type="text" value="'.$obj->ds_categoria.'" name="dsedit" class="form-control">
+
+          <div class="col-sm-3 coluna-addservicos slide-in-left-titulo">
+          <h4 class="h4-addservicos text-left">Nome da Categoria</h4>
+            <input type="text" value="'.$obj->nm_categoria.'" placeholder="'.$obj->nm_categoria.' (Antigo Nome)" name="nmedit" class="input-addservicos" required>
           </div>
-          <div class="col-md-4">
-            <input type="submit" class="btn btn-success" value="Salvar">
           </div>
-            </form>
-        </div>';
+          <br>
+
+          <div class="row">
+          <div class="col-sm-3">
+          </div>
+
+          <div class="col-sm-3 coluna-addservicos slide-in-left-desc">
+          <h4 class="h4-addservicos text-left">Descrição da Categoria</h4>
+            <input type="text" value="'.$obj->ds_categoria.'" placeholder="'.$obj->ds_categoria.' (Antiga Descrição)" name="dsedit" class="input-addservicos" required>
+          </div>
+          </div>
+
+          <div class="row">
+          <div class="col-sm-3">
+          </div>
+
+          <div class="col-sm-5 text-center">
+          <br>
+            
+            <input type="submit" class="btn btn-outline-success slide-in-fwd-center" style="text-transform: capitalize;"value="Editar">
+          </div>
+          </div>
+
+            </form>';
       }
     }
 
@@ -55,6 +75,13 @@ session_start();
     }
 
   ?>
-  </div>
-</body>
-</html>
+
+      </div>
+    </div>
+  </section>
+</div>
+<!-- SCRIPTS -->
+<?php include('inc/scripts.php');?>
+
+<!-- FOOTER -->
+<?php include('inc/footer.php');?>

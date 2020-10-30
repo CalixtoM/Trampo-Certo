@@ -17,71 +17,79 @@ session_start();
 <?php include('inc/navbar.php');?>
 
 <!-- INSERT CATEGORIA -->
-<?php 
-	
-	if(isset($_POST['nome'])){
-		$cat = "INSERT INTO categoria VALUES(NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". 0 ."')";
 
-		if ($result=$mysqli->query($cat)){
-			header('location: categoria.php');
-		}
-		else{
-  			printf($mysqli->error);
-		}
-	
-}
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
+<div id="tc-index">
+ 	<section class="parallax-servicopage">
+		<?php
+			if(isset($_POST['nome'])){
+			$cat = "INSERT INTO categoria VALUES(NULL, '".$_POST['nome']."', '".$_POST['desc']."', '". 0 ."')";
+			if ($result=$mysqli->query($cat)){
+				header('location: categoria.php');
+			}
+			else{
+  				printf($mysqli->error);
+			}
+			}
+			?>
 	<div class="container">
-		<div class="row">
-				<form method="post">
-			<div class="col-md-4">
-				<label>Nomeie a Categoria:</label>
-				<input type="text" name="nome">
+		<form method="post">
+			<h2 id="h2-addservicos" class="tracking-in-expand text-center">CATEGORIAS</h2><br>
+			<div class="row">
+			<div class='col-sm-3'></div>
+
+			<div class='col-sm-3 coluna-addservicos slide-in-left-titulo'>
+			<h4 class='h4-addservicos text-left'>Nome da Categoria</h4>
+			<input type="text" name="nome" class="input-addservicos" placeholder="Insira a Categoria do Serviço">
+
 			</div>
-			<div class="col-md-4">
-				<label>Descreva a Categoria:</label>
-				<input type="text" name="desc">
 			</div>
-			<div class="col-md-4">
-				<input type="submit" class="btn btn-success" name="">
+			<br>
+			<div class="row">
+			<div class='col-sm-3'></div>
+
+			<div class='col-sm-3 coluna-addservicos slide-in-left-desc'>
+			<h4 class='h4-addservicos text-left'>Descreva a Categoria</h4>
+			<input type="text" name="desc" class="input-addservicos" placeholder="Insira a Descrição do Serviço">
+
+			</center>
+			</div>
+
+			<div class="col-md-12">
+
+			<center>
+				<br>
+				<input type="submit" class="btn btn-outline-success slide-in-fwd-center" name="">
 				</form>
+			</center>
+			
+
 			</div>
-		</div>
-		<div class="row">
-			<hr>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				
+			</div>
+			<div class="row">
+				<hr>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
 			</div>
 			<div class="col-md-6">
 				<table class="table">
 				  <thead>
-				    <tr>
-				      <th scope="col">#</th>
+				    <tr class="text-light">
+				      <th scope="col"><b>#</th>
 				      <th scope="col">Nome</th>
 				      <th scope="col">Descrição</th>
+				      <th scope="col">Opções</b></th>
+				      <th scope="col"></th>
 				    </tr>
 				  </thead>
 				  <tbody>
-
-
-
 				<?php
 				$ct = "SELECT * FROM categoria";
 				
 				if($result=$mysqli->query($ct)){
 					while($obj = $result->fetch_object()){
 						echo '
-						<tr>
+						<tr class="text-light">
 						      <th scope="row">'.$obj->cd_categoria.'</th>
 						      <td>'.$obj->nm_categoria.'</td>
 						      <td>'.$obj->ds_categoria.'</td>
@@ -102,11 +110,6 @@ session_start();
 
 </body>
 </html>
-
-<!-- Modal Editar -->
-
-	
-
 
 
 

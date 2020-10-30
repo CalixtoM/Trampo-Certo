@@ -4,6 +4,7 @@
  	$serv = "SELECT * FROM servico AS s INNER JOIN categoria AS c ON s.id_categoria = c.cd_categoria WHERE id_usuario = '".$_SESSION['cd']. "' ORDER BY dt_servico DESC";
 
 
+
  	echo '<table class="table table-dark">
 		<thead>
     		<tr>
@@ -22,7 +23,7 @@
  		while($obj = $result->fetch_object()){
  			echo '
     		<tr>
-      			<td>'.$obj->ds_servico.'</td>
+      			<td>'.$obj->nm_servico.'</td>
       			<td>'.$obj->ds_servico.'</td>
       			<td>'.date('d/m/Y', strtotime($obj->dt_servico)).'</td>
       			<td>'.date('d/m/Y', strtotime($obj->dt_prazo)).'</td>

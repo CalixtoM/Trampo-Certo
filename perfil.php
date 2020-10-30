@@ -14,8 +14,9 @@ session_start();
 <title>Trampo Centro - Perfil</title>
 
 <!-- NAVBAR -->
-<?php include('inc/navbar.php');?>
-
+<?php include('inc/navbar.php');
+	  include('inc/galeria.php');
+?>
 <!-- SELECT SERVIÇOS -->
 
 
@@ -87,16 +88,20 @@ session_start();
 										echo "<b class='slide-in-left-dois'>Endereço: </b> ";
 										echo $obj->ds_usendereco. "<br><br>";
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='update.php' title='Editar Perfil'><b>EDITAR <i class='fas fa-pencil-alt' style='font-size:15px'></i></b></a><br>";
+										if ($obj->st_admin == 0) {
 										echo "<a data-confirm='Tem certeza que deseja excluir sua conta?'class='perfil-editar animation-perfil-danger slide-in-left-tres' href='delet.php?ex=$obj->cd_usuario' title='Excluir Perfil'><b>EXCLUIR <i class='fas fa-skull-crossbones' style='font-size:15px'></i></b></a><br>";
+									}
 										
 
 
 										
 										echo "<br>";
+										if (!isset($_SESSION['google'])) {
 										echo "<a class='perfil-editar animation-perfil slide-in-left-tres' href='updatesenha.php' id='' title='Alterar senha'><b>ALTERAR SENHA <i class='fas fa-wrench' style='font-size:15px'></i></b></a>";
+									}
 									echo "</div>";
 
-								
+
 									echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Opções</h3><hr class='hr-perfil'>";
 
 									$query_finalizar="SELECT * FROM servico AS s INNER JOIN usuario AS u ON s.id_usuario=u.cd_usuario WHERE st_servico=0 and id_usuario = '".$_SESSION['cd']."' OR id_orcamento = '".$_SESSION['cd']."' and st_servico=0 ";
@@ -105,21 +110,24 @@ session_start();
 										$nota_confer="SELECT id_serviconota FROM nota WHERE id_serviconota = '".$servicof->cd_servico."' and id_usuarion != '".$_SESSION['cd']."' ";
 										$num=$mysqli->query($nota_confer);
 										if ($num->num_rows ==0){
-										echo	'<div class="card" style="width: 18rem;">
+										echo	'
+										<a class="card-servicos" id="a-servicos">
+										<div class="card" style="width: 18rem;">
   											<div class="card-body">
-   												<h5 class="card-title">'.$servicof->nm_servico.'</h5>';
+   												<h5 class="card-title">Serviço: '.$servicof->nm_servico.'</h5>';
    													if ($servicof->id_usuario == $_SESSION['cd']) {		
-   													echo	'<p class="card-text">Agora que decidido, avalie o serviço a seguir quando o trabalhador realizar</p>';	   
-   	    											echo '<a href="nota.php?nota='.$servicof->cd_servico.'"><button class="btn btn-primary">Avalie</button></a>';
-   	    											echo '<a href="chatajax.php?chat='.$servicof->cd_servico.'"><button class="btn btn-success">Chat</button></a>';
+   													echo	'<p class="card-text">Agora que decidido, avalie o serviço a seguir quando o trabalhador realizar.<br><br></p>';	   
+   	    											echo '<a href="nota.php?nota='.$servicof->cd_servico.'"><button class="btn btn-primary">Avalie</button></a> ';
+   	    											echo ' <a href="chatajax.php?chat='.$servicof->cd_servico.'"><button class="btn btn-success">Chat</button></a>';
 
    													}else{
    														echo '<p class="card-text">Parabéns, escolheram seu orçamento. Quando realizar o serviço avalie o usuario contratante.</p>';
-   														echo '<a href="nota.php?notado='.$servicof->cd_servico.'"><button class="btn btn-primary">Avalie</button></a>';
-   														echo '<a href="chatajax.php?chat='.$servicof->cd_servico.'"><button class="btn btn-success">Chat</button></a>';
+   														echo '<a href="nota.php?notado='.$servicof->cd_servico.'"><button class="btn btn-primary">Avalie</button></a> ';
+   														echo ' <a href="chatajax.php?chat='.$servicof->cd_servico.'"><button class="btn btn-success">Chat</button></a>';
    													}
     											echo '</div>
-										</div>';	
+										</div>
+										</a>';	
 		}	
 	}
 }else{
@@ -132,23 +140,30 @@ session_start();
 									}	
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
-										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='' id=''>Categorias</a></button><br>";
+										echo" <button> <a class='btn-perfil tracking-in-expand-dois' href='categoria.php' id=''>Categorias</a></button><br>";
 									}
 									if ($obj->st_admin == 1) {
 										$_SESSION['adm'] = $obj->cd_usuario;
-										echo" <button><a class='btn-perfil tracking-in-expand-tres' href='' id=''>Denúncias</a></button>";
+										echo" <button><a class='btn-perfil tracking-in-expand-tres' href='visualizarreport.php' id=''>Denúncias</a></button><br>";
 									}
-										echo "<div class='col-sm-9 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Galeria</h3><hr class='hr-perfil'>";
+									if ($obj->st_admin == 1) {
+										$_SESSION['adm'] = $obj->cd_usuario;
+										echo" <button><a class='btn-perfil tracking-in-expand-quatro' href='visualizarservico.php' id=''>Visualizar Serviços</a></button><br>";
+									}	
+
+									if ($obj->st_admin == 0) {
+										echo "<div class='col-sm-12 text-center'><hr class='hr-perfil'><h3 class='tracking-in-expand'>Galeria</h3><hr class='hr-perfil'>";
 										echo "<button class='btn btn-success' data-toggle='modal' data-target='#galeriaModal'>Adicione Fotos</button></div>";
 									$galeria_sql="SELECT * FROM arquivo WHERE id_usuariof = '".$_SESSION['cd']."' ";
 									$galeria = $mysqli->query($galeria_sql);
 									while ($galeria_obj = $galeria->fetch_object()) {
 							
-     												echo '<a href="'.$galeria_obj->ds_arquivo.'" data-size="1600x1067">
-          												<img alt="picture" src="'.$galeria_obj->ds_arquivo.'" class="img-fluid" style="width:300px; heigth:300px;">
+     												echo '<a data-fancybox="gallery" href="'.$galeria_obj->ds_arquivo.'">
+          												<img src="'.$galeria_obj->ds_arquivo.'" class="img-fluid" style="width:250px; heigth:250px;">
         												</a>';
 
 									}
+								}
 								
 							
 
@@ -162,10 +177,13 @@ session_start();
 							printf($mysqli->error);
 							}
 
+
+							if($_SESSION['usuario']){
 							echo "<div class='container'>";
 								echo "<br><br><h3>Serviços Postados Por ".$_SESSION['nm']."</h3>";				
 										include('perfilservico.php');
 							echo "</div>";	
+						}
 						}
 						if(isset($_GET['cdus']) && $_GET['cdus'] != $_SESSION['cd']){
 
@@ -288,6 +306,7 @@ session_start();
 			</center>
         </div>
         <div class="modal-footer">
+        <i class='fas fa-angle-left'></i>
           <button style="text-transform: capitalize;" type="button" class="btn btn-warning" data-dismiss="modal">Voltar</button>
         </div>
       </div>

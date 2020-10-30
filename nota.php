@@ -7,14 +7,7 @@ session_start();
 	/*--------------------------------------------*/
 	include ("inc/conectar.php");
 ?>
-<!-- HEAD -->
-<?php include('inc/head.php');?>
 
-<!-- TÍTULO DA PÁGINA -->
-<title>Trampo Centro - Nota</title>
-
-<!-- NAVBAR -->
-<?php include('inc/navbar.php');?>
 <?php
 
 
@@ -70,32 +63,59 @@ if(isset($_POST['estrela'])){
 	}
 }
 ?>
-<br><br><br><br>
-<h1>De sua nota</h1>
-          <p>De a nota para o trabalho exercido.</p>
-          		<form method="POST" enctype="multipart/form-data">
-				<div class="estrelas">
-				<input type="radio" id="vazio" name="estrela" value="" checked>
+<!-- HEAD -->
+<?php include('inc/head.php');?>
+
+<!-- TÍTULO DA PÁGINA -->
+<title>Trampo Centro - Nota</title>
+
+<!-- NAVBAR -->
+<?php include('inc/navbar.php');?>
+
+<!-- CONTEÚDO DA PÁGINA -->
+
+<div id="tc-index">
+	<section class="parallax-notas">
+		<div class="container text-light">
+			<div class="row">
+				<div class="col-sm-12">
+					<center>
+					<h2 id="h2-notas" class="tracking-in-expand">DE SUA NOTA!</h2>
+          			<p>De a nota para o serviço exercido.</p>
+          			<form method="POST" enctype="multipart/form-data">
+						<div class="estrelas">
+							<input type="radio" id="vazio" name="estrela" value="" checked class="zero_n">
+
+							<label for="estrela_um"><i class="fa"></i></label>
+							<input type="radio" id="estrela_um" name="estrela" value="1" class="um_n">
 				
-				<label for="estrela_um"><i class="fa"></i></label>
-				<input type="radio" id="estrela_um" name="estrela" value="1">
+							<label for="estrela_dois"><i class="fa" ></i></label>
+							<input type="radio" id="estrela_dois" name="estrela" value="2" class="dois_n">
 				
-				<label for="estrela_dois"><i class="fa"></i></label>
-				<input type="radio" id="estrela_dois" name="estrela" value="2">
+							<label for="estrela_tres"><i class="fa"></i></label>
+							<input type="radio" id="estrela_tres" name="estrela" value="3" class="tres_n">
 				
-				<label for="estrela_tres"><i class="fa"></i></label>
-				<input type="radio" id="estrela_tres" name="estrela" value="3">
+							<label for="estrela_quatro"><i class="fa"></i></label>
+							<input type="radio" id="estrela_quatro" name="estrela" value="4" class="quatro_n">
+					
+							<label for="estrela_cinco"><i class="fa"></i></label>
+							<input type="radio" id="estrela_cinco" name="estrela" value="5" class="cinco_n"><br><br>
 				
-				<label for="estrela_quatro"><i class="fa"></i></label>
-				<input type="radio" id="estrela_quatro" name="estrela" value="4">
-				
-				<label for="estrela_cinco"><i class="fa"></i></label>
-				<input type="radio" id="estrela_cinco" name="estrela" value="5"><br><br>
-				
-				<input type="submit" class="btn btn-success text-light" value="Cadastrar">
-				
-			
-		</form>
-       
-          <button type="button" class="btn btn-default text-light" data-dismiss="modal">Close</button>
-        
+							<input type="submit" class="btn btn-outline-warning scale-in-centerupum" value="Enviar Nota">
+						</div>
+					</form>
+					</center>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<!-- SCRIPTS -->
+<?php include('inc/scripts.php');?>
+<script src="js/exclu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- FOOTER -->
+<?php include('inc/footer.php');?>
+
