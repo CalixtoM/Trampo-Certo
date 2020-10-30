@@ -524,6 +524,17 @@ button:hover {
 		outline: none;
 		transition: 0.4s;
 }
+
+.input-login-up{
+    width: 400px;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    outline: none;
+    transition: 0.4s;
+}
+
 .input-login:hover{
 	border-bottom: 2px solid #32CD32;
 	transition: 0.4s;
@@ -531,6 +542,15 @@ button:hover {
 .input-login:focus{
 	border-bottom: 2px solid #32CD32;
 	transition: 0.4s;
+}
+
+.input-login-up:hover{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
+}
+.input-login-up:focus{
+  border-bottom: 2px solid #32CD32;
+  transition: 0.4s;
 }
 
 .label-login{
@@ -930,6 +950,7 @@ button:hover {
   background: white;
 }
 
+/* ITENS LISTADOS NA PÁGINA DE ADM */
 .tracking-in-expand-um {
   -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.4s both;
           animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.4s both;
@@ -942,6 +963,12 @@ button:hover {
   -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.8s both;
           animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.8s both;
 }
+.tracking-in-expand-quatro {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+          animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+}
+
+
 .slide-in-left {
   -webkit-animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
           animation: slide-in-left 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -1541,6 +1568,11 @@ button:hover {
           animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
 }
 
+.slide-in-left-lc {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+          animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+}
+
 @-webkit-keyframes slide-in-left {
   0% {
     -webkit-transform: translateX(-1000px);
@@ -1683,4 +1715,90 @@ button:hover {
   color: #FC0;
 }.estrelas  input[type=radio]:checked  ~ label i.fa:before{
   color: #CCC;
+}
+
+/*===================================== RECUPERAR SENHA =====================================*/
+
+/* FUNDO */
+.parallax-recuperar_senha {
+  background: #121212;
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*===================================== EDITAR PERFIL =====================================*/
+
+/* FUNDO */
+.parallax-editperfil{
+  background: #121212;
+  min-height: 550px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+/*===================================== SERVICE_PAGE =====================================*/
+
+.h6-orcamento{
+  color: white;
+}
+
+.h6-orcamento:hover{
+  color: white;
+}
+
+
+/*===================================== NOTA =====================================*/
+
+.parallax-notas{
+  background: #121212;
+  min-height: 400px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
+}
+
+#h2-notas{
+  color: #ffc107;
+}
+
+/*===================================== ORÇAMENTO =====================================*/
+
+.a-orcamento{
+  color: white;
+  text-decoration: none;
+}
+
+.a-orcamento:hover{
+  color: #32CD32;
+  text-decoration: none;
+}
+
+.a-orcamento:focus{
+  color: #32CD32;
+  text-decoration: none;
+}
+
+/*===================================== EDIT CATEGORIA =====================================*/
+
+.parallax-editcat{
+  background: #121212;
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50;
+  padding: 150px 0 0px; 
 }
