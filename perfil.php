@@ -27,7 +27,7 @@ session_start();
 		<div class="container text-light">
 			<div class="row">
 						<?php						
-						if(!isset($_GET['cdus']) || isset($_GET['cdus']) && $_GET['cdus'] = $_SESSION['cd']){
+						if(!isset($_GET['cdus'])){
 
 							$sql="SELECT * FROM usuario WHERE ds_email='".$_SESSION['usuario']."'";//ele usa o nome, pq nao ta setado, da erro
 
@@ -185,7 +185,7 @@ session_start();
 							echo "</div>";	
 						}
 						}
-						if(isset($_GET['cdus']) && $_GET['cdus'] != $_SESSION['cd']){
+						if(isset($_GET['cdus']) != $_SESSION['cd']){
 
 							$sql="SELECT * FROM usuario WHERE cd_usuario='".$_GET['cdus']."'";
 							//Diferencia tela de perfil de usuario diferente do logado

@@ -7,13 +7,13 @@ cd_usuario int not null primary key auto_increment,
 nm_usuario varchar(75) not null,
 ds_email varchar(60) unique not null,
 ds_password varchar(20) not null,
-nr_cpf varchar(11) unique not null,
-nr_celular varchar(11) not null,
-dt_nascimento date not null,
-ds_usendereco varchar(80) not null,
-st_admin boolean not null,
-st_ativo boolean not null,
-ds_avaliacao int not null,
+nr_cpf varchar(11) unique default null,
+nr_celular varchar(11) default null,
+dt_nascimento date default null,
+ds_usendereco varchar(80) default null,
+st_admin boolean default null,
+st_ativo boolean default null,
+ds_avaliacao int default null,
 st_foto varchar(255) not null
 );
 
@@ -27,7 +27,8 @@ dt_servico date not null,
 dt_prazo date not null, 
 id_usuario int not null,
 id_categoria int not null,
-st_servico boolean not null
+st_servico boolean not null,
+id_orcamento int(11) 
 );
 
 
@@ -72,6 +73,13 @@ create table arquivo (
   dt_data datetime not null
 );
 
+create table usuario_suspenso(
+cd_suspenso int not null primary key auto_increment,
+id_usuariosuspenso int not null,
+dt_inicio datetime not null,
+dt_fim datetime not null
+);
+
 alter table servico
 add constraint id_usuario foreign key (id_usuario) references usuario (cd_usuario);
 
@@ -98,3 +106,30 @@ add constraint id_reportados foreign key (id_reportados) references usuario (cd_
 
 alter table arquivo
 add constraint id_usuariof foreign key (id_usuariof) references usuario (cd_usuario);
+
+alter table servico
+add constraint id_orcamento foreign key (id_orcamento) references orcamento (cd_orcamento);
+
+alter table usuario_suspenso
+add constraint id_usuariosuspenso foreign key (id_usuariosuspenso) references usuario (cd_usuario);
+
+delimiter $$
+CREATE TRIGGER trg_usuarioSuspenso after insert
+on usuario_suspenso 
+for each row 
+begin 
+	update usuario set st_ativo = 0 where cd_usuario = new.id_usuariosuspenso;
+	
+end$$
+delimiter ;
+
+insert into usuario values (NULL, 'teste', 'teste@teste', 123, 12345676543, 12334234564, '2003-12-12', 'rua pao', 0, 1, 0, 0);
+
+insert into usuario values (NULL, 'teste1', 'teste@teste1', 123, 12345677543, 12334234564, '2003-12-12', 'rua pao1', 0, 1, 0, 0);
+
+
+select * from usuario;
+
+insert into usuario_suspenso values (NULL, 3, '2020-11-09', '2020-11-24');
+
+insert into categoria (cd_categoria, nm_categoria, ds_categoria) values (NULL, 'Pintor', 'Pintar coisas');
