@@ -185,7 +185,7 @@ session_start();
 							echo "</div>";	
 						}
 						}
-						if(isset($_GET['cdus']) != $_SESSION['cd']){
+						if(isset($_GET['cdus'])){
 
 							$sql="SELECT * FROM usuario WHERE cd_usuario='".$_GET['cdus']."'";
 							//Diferencia tela de perfil de usuario diferente do logado

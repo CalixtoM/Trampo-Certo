@@ -65,7 +65,7 @@
                           
                           }else{
                              echo "<a href='servicepage.php?serv=".$obj->cd_servico."' class='card-link btn btn-outline-success text-center'> Orçamento</a>";
-                              echo "<a href='report.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br><br>";
+                              echo "<a href='reports.php?cod=".$obj->cd_servico."' class='card-link btn btn-outline-danger text-center'> Reportar</a><br><br>";
                           
                           }
                           echo "</center>
