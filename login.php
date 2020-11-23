@@ -118,5 +118,3 @@ $sql="SELECT * FROM usuario WHERE ds_email='".$_POST['email']."'";
 
 <!-- FOOTER -->
 <?php include('inc/footer.php');?>
-
-

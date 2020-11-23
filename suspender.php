@@ -20,7 +20,7 @@
 	$sql = "INSERT INTO usuario_suspenso VALUES (NULL, '".$banido."', '".$dthj."', '".$dtf."')";
 
 	if ($rslt = $mysqli->query($sql)){		
-		echo "foi";
+		echo "Banido.";
 	}
 
 ?>

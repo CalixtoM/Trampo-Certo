@@ -64,41 +64,41 @@ $_SESSION['usuario'];
                   }
               }
             }
-						if ($resulti=$mysqli->query($orcam)) {
+            if ($resulti=$mysqli->query($orcam)) {
                 if ($resulti->num_rows == 0 && $_SESSION['cd'] != $ser) {
-                	echo '<br><div class="col-sm-12"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addorçamento">Adicionar Orçamento</button></div><br><br>';
+                  echo '<br><div class="col-sm-12"><button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addorçamento">Adicionar Orçamento</button></div><br><br>';
                 }
-															
-						}
+                              
+            }
    ?>
 
    <br>
    <!-- MODAL DE ADICIONAR ORÇAMENTO -->
-  	<div class="modal fade" id="addorçamento">
-    	<div class="modal-dialog">
-		    <div class="modal-content bg-custom">
-		        <div class="modal-header">
-		        		<h4 class="modal-title text-light">Adicionar Orçamento</h4>
-		        </div>
-		        <div class="modal-body">
+    <div class="modal fade" id="addorçamento">
+      <div class="modal-dialog">
+        <div class="modal-content bg-custom">
+            <div class="modal-header">
+                <h4 class="modal-title text-light">Adicionar Orçamento</h4>
+            </div>
+            <div class="modal-body">
               <center>
-		        	<?php echo	'<form method="post" action="servicepage.php?serv='.$_GET['serv'].'">';?>
-		        		<?php
-		        		echo '<label class="text-light">Valor R$: </label><br><input type="number" class="input-login" name="valor" class="valor-mask" id="orca-input"  min="0" max="9999" step="any" required placeholder="Preço $$$" /><br><br>';
-		        		echo '<label class="text-light">Descrição do Serviço a prestar:</label><br> <input type="text" name="desc" class="input-login-up max"500" required placeholder="Descrição"><br><br>';
-		        		echo '<center><input type="submit" class="card-link btn btn-outline-success text-center"></center>';
+              <?php echo  '<form method="post" action="servicepage.php?serv='.$_GET['serv'].'">';?>
+                <?php
+                echo '<label class="text-light">Valor R$: </label><br><input type="number" class="input-login" name="valor" class="valor-mask" id="orca-input"  min="0" max="9999" step="any" required placeholder="Preço $$$" /><br><br>';
+                echo '<label class="text-light">Descrição do Serviço a prestar:</label><br> <input type="text" name="desc" class="input-login-up max"500" required placeholder="Descrição"><br><br>';
+                echo '<center><input type="submit" class="card-link btn btn-outline-success text-center"></center>';
 
-		        			if(isset($_POST['desc'])){
-		        				$orcam= "SELECT * FROM orcamento WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
-		        				if ($resulti=$mysqli->query($orcam)){
-		        					if($resulti->num_rows == 0){
-										$ins = "INSERT INTO orcamento VALUES(NULL,'".$_GET['serv']."','".$_SESSION['cd']."','".$_POST['valor']."','".$_POST['desc']."')";
-										if ($result=$mysqli->query($ins)) {
+                  if(isset($_POST['desc'])){
+                    $orcam= "SELECT * FROM orcamento WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
+                    if ($resulti=$mysqli->query($orcam)){
+                      if($resulti->num_rows == 0){
+                    $ins = "INSERT INTO orcamento VALUES(NULL,'".$_GET['serv']."','".$_SESSION['cd']."','".$_POST['valor']."','".$_POST['desc']."')";
+                    if ($result=$mysqli->query($ins)) {
                       header('location:servicepage.php?serv='.$_GET['serv'].'');                          
-	      								}else{
-	  										printf($mysqli->error);
-											}
-										}else{
+                        }else{
+                        printf($mysqli->error);
+                      }
+                    }else{
                       $duplo_orçamento='
                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
                       <strong>Você já possui um Orçamento neste serviço, caso haja algum requerimento de edição favor editar o orçamento cadastrado/strong> incorretos.
@@ -106,80 +106,80 @@ $_SESSION['usuario'];
                       <span aria-hidden="true">&times;</span>
                       </button>
                       </div>';
-										}
-									}
-								}
-		        		?>
-		        		</form>
+                    }
+                  }
+                }
+                ?>
+                </form>
               </center>
-		        	</div>
-		        		<div class="modal-footer">
-		          			<button type="button" class="btn btn-outline-danger"  style="text-transform: capitalize;" data-dismiss="modal">Cancelar</button>
-		        		</div>
-		    </div> 
-    	</div>
-  	</div>
+              </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger"  style="text-transform: capitalize;" data-dismiss="modal">Cancelar</button>
+                </div>
+        </div> 
+      </div>
+    </div>
 
-  	<!-- MODAL DE EDITAR ORÇAMENTO -->
-  	<div class="modal fade" id="editModal">
-  		<?php 
-  			$orcamen= "SELECT * FROM orcamento WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
-  				if ($resultado=$mysqli->query($orcamen)){
-  					while ($objet = $resultado ->fetch_object()) { 
-  		?>
-    	<div class="modal-dialog">
+    <!-- MODAL DE EDITAR ORÇAMENTO -->
+    <div class="modal fade" id="editModal">
+      <?php 
+        $orcamen= "SELECT * FROM orcamento WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
+          if ($resultado=$mysqli->query($orcamen)){
+            while ($objet = $resultado ->fetch_object()) { 
+      ?>
+      <div class="modal-dialog">
 
-		    <div class="modal-content bg-custom">
-		        <div class="modal-header">
-		        		<h4 class="modal-title text-light">Edite as Informações do seu Orçamento</h4>
-		        </div>
-		        <?php	echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; 
+        <div class="modal-content bg-custom">
+            <div class="modal-header">
+                <h4 class="modal-title text-light">Edite as Informações do seu Orçamento</h4>
+            </div>
+            <?php echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; 
                echo '<form method="post" action="servicepage.php?serv='.$_GET['serv'].'">';
 
 
-		        			echo '<label class="text-light">Valor R$: </label><br><input type="number" name="valorup" value="'.$objet->vl_orcamento.'"  class="valor-mask input-login"  data-mask="0000.00" min="0" max="9999" step="any" required /><br><br>';
-		        			echo '<label class="text-light">Descrição do Serviço a prestar:</label><br><input type="text" value="'.$objet->ds_orcamento.'" name="descup" class="input-login" max"500" required><br><br>';
+                  echo '<label class="text-light">Valor R$: </label><br><input type="number" name="valorup" value="'.$objet->vl_orcamento.'"  class="valor-mask input-login"  data-mask="0000.00" min="0" max="9999" step="any" required /><br><br>';
+                  echo '<label class="text-light">Descrição do Serviço a prestar:</label><br><input type="text" value="'.$objet->ds_orcamento.'" name="descup" class="input-login" max"500" required><br><br>';
                    echo "<button style='text-transform: capitalize;' type='button' class='btn btn-outline-warning' data-dismiss='modal'>Voltar</button> ";
-		        			echo ' <input type="submit" name="Editar" class="card-link btn btn-outline-success text-center">';
+                  echo ' <input type="submit" name="Editar" class="card-link btn btn-outline-success text-center">';
                   echo '</form>';
 
-		        		if (isset($_POST['descup'])){
-		        			$editar="UPDATE orcamento SET vl_orcamento = '".$_POST['valorup']."', ds_orcamento = '".$_POST['descup']."' WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
-		        				if($ress=$mysqli->query($editar)){
-		        				 	header('location:servicepage.php?serv='.$_GET['serv'].'');		        					
-		        				}else{
-		        					print($mysqli->error);
-		        				}
-		        			}
-		        		}
-		        	}
-		        
-			?>
-		        		</form>
-		        	<?php echo '</div>'?>
-		        		
-		        </div>
-		    </div> 
-  	</div>
+                if (isset($_POST['descup'])){
+                  $editar="UPDATE orcamento SET vl_orcamento = '".$_POST['valorup']."', ds_orcamento = '".$_POST['descup']."' WHERE '".$_GET['serv']."' = id_servico AND '".$_SESSION['cd']."' = id_usuariot";
+                    if($ress=$mysqli->query($editar)){
+                      header('location:servicepage.php?serv='.$_GET['serv'].'');                      
+                    }else{
+                      print($mysqli->error);
+                    }
+                  }
+                }
+              }
+            
+      ?>
+                </form>
+              <?php echo '</div>'?>
+                
+            </div>
+        </div> 
+    </div>
   </div>
 
-  		
-   	<!-- mODAL DE EXCLUIR ORÇAMENTO -->
+      
+    <!-- mODAL DE EXCLUIR ORÇAMENTO -->
 <div id="excluModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content bg-custom">
       <div class="modal-header">
         <h4 class="modal-title text-light">Você realmente deseja excluir</u> o Orçamento?</h4>
       </div>
-		    <?php	echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; ?>
-        	<form>
-        		<?php
+        <?php echo '<div class="modal-body" id="'.$_SESSION['cd'].'">'; ?>
+          <form>
+            <?php
           
-    					  echo '<button data-dismiss="modal" style="text-transform: capitalize;" type="button" class="btn btn-info btn-lg" name="cancelar">Cancelar</button>';
-              	echo ' <a href="delet.php?serv='.$_GET['serv'].'"><button style="text-transform: capitalize;" type="button" class="btn btn-danger btn-lg" name="excluir">Excluir</button></a>'; 
+                echo '<button data-dismiss="modal" style="text-transform: capitalize;" type="button" class="btn btn-info btn-lg" name="cancelar">Cancelar</button>';
+                echo ' <a href="delet.php?serv='.$_GET['serv'].'"><button style="text-transform: capitalize;" type="button" class="btn btn-danger btn-lg" name="excluir">Excluir</button></a>'; 
 
-        		?>	
-        	</form>
+            ?>  
+          </form>
       </div>
       <center>
         <button style='text-transform: capitalize;' type='button' class='btn btn-outline-warning' data-dismiss='modal'>Voltar</button><br><br>
@@ -188,7 +188,7 @@ $_SESSION['usuario'];
 
   </div>
 </div>
-  	
+    
         <!-- MODAL SELECIONAR ORÇAMENTO -->
 <div id="confModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -224,8 +224,8 @@ $_SESSION['usuario'];
     </center>
   </div>
 </div>
-  	<script type="text/javascript">
-	
+    <script type="text/javascript">
+  
       $('#orca').mask('0000.00');
 
     </script>

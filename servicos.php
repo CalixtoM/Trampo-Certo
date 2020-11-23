@@ -71,7 +71,6 @@
                           echo "</center>
                           </div>
                         </div>
-
                         ";
                       
                     

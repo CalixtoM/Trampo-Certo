@@ -118,4 +118,3 @@ if(isset($_POST['estrela'])){
 
 <!-- FOOTER -->
 <?php include('inc/footer.php');?>
-

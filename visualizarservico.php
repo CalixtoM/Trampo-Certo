@@ -52,7 +52,6 @@ date_default_timezone_set('America/Sao_Paulo');
     while($obj = $result->fetch_object()){
       echo '
         <tr class="tr" >
-
            <td>'.$obj->nm_usuario.'</td>
             <td>'.$obj->nm_servico.'</td>
             <td>'.$obj->ds_servico.'</td>
@@ -88,6 +87,3 @@ date_default_timezone_set('America/Sao_Paulo');
 
 <!-- FOOTER -->
 <?php include('inc/footer.php');?>
-
-
-

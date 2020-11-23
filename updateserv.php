@@ -32,7 +32,6 @@
  			<form method='post'>
  				<div class='row'>
 				<div class='col-sm-3'></div>
-
 				<div class='col-sm-3 coluna-addservicos slide-in-left-titulo'>
 				<h4 class='h4-addservicos text-left'>Nome do Serviço</h4>";
        		   echo  '<input type="text" class="input-addservicos" name="nomeup" value="'.$obj->nm_servico.'" required placeholder="'.$obj->nm_servico.' (Nome Antigo)">';
@@ -42,7 +41,6 @@
        			<br>
        			<div class='row'>
 				<div class='col-sm-3'></div>
-
 				<div class='col-sm-3 coluna-addservicos slide-in-left-desc'>
 				<h4 class='h4-addservicos text-left'>Descrição</h4>";
 
@@ -55,7 +53,6 @@
        			<br>
        			<div class='row'>
 				<div class='col-sm-3'></div>
-
 				<div class='col-sm-3 coluna-addservicos slide-in-left-dt'>
 				<h4 class='h4-addservicos text-left'>Data de Prazo</h4>";
        		   echo  '<input type="date" name="dataup" class="input-addservicosdt" value="'.$obj->dt_prazo.'" required placeholder="'.$obj->dt_prazo.' (Data Antiga)"><br>';
@@ -66,7 +63,6 @@
        			<br>
        			<div class='row'>
 				<div class='col-sm-3'></div>
-
 				<div class='col-sm-3 coluna-addservicos slide-in-left-lc'>
 				<h4 class='h4-addservicos text-left'>Localização</h4>";
        		   echo  '<input type="text" name="enderecoup" class="input-addservicosdt" value="'.$obj->ds_usendereco.'" required placeholder="'.$obj->ds_usendereco.' (Localização Antiga)"><br></div></div><br>';

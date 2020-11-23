@@ -106,7 +106,7 @@ session_start();
 				<td>".$obj->nm_usuario."</td>
 				<td>".$obj->ds_reports."</td>
 				<td>".$obj->dt_reports."</td>
-				<td></td>";
+				<td><a href='suspender.php?cdban=$obj->id_reportados' class='btn btn-danger'>Banir por 15 dias</a></td>";
 
 			}
 		}else{
@@ -124,6 +124,3 @@ session_start();
 
 <!-- FOOTER -->
 <?php include('inc/footer.php');?>
-
-
-

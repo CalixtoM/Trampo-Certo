@@ -20,7 +20,7 @@ session_start();
 
 	$_SESSION['servicorep'] = $_GET['cod'];
 
-	$show="SELECT * FROM servico WHERE id_usuario = '".$_SESSION['servicorep']."'";
+	$show="SELECT * FROM servico WHERE cd_servico = '".$_SESSION['servicorep']."'";
 
 	if ($resulte=$mysqli->query($show)) {
 		while ($obj = $resulte ->fetch_object()) {
@@ -35,8 +35,9 @@ session_start();
 		$sql = "INSERT INTO report_servico VALUES(NULL, '".$_POST['desc']."', '" .$data."', '".$_SESSION['servicorep']."','".$_SESSION['cd']."','".$_SESSION['reportado']."', 1)";
 
 		if($result=$mysqli->query($sql)){
-			header('location:perfil.php');
+			header('location:servicos.php');
 		}
+
 	}
 
 ?>
